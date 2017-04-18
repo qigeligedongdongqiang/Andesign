@@ -1,0 +1,38 @@
+PODS:
+  - CYLTabBarController (1.10.0)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - IQKeyboardManager (4.0.8)
+  - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.12)
+  - QBImagePickerController (3.4.0)
+  - YYText (1.0.7)
+
+DEPENDENCIES:
+  - CYLTabBarController (~> 1.10.0)
+  - FMDB (~> 2.6.2)
+  - IQKeyboardManager (~> 4.0.8)
+  - Masonry (~> 1.0.2)
+  - MBProgressHUD (~> 1.0.0)
+  - MJExtension (~> 3.0.13)
+  - MJRefresh (~> 3.1.12)
+  - QBImagePickerController (~> 3.4.0)
+  - YYText (~> 1.0.7)
+
+SPEC CHECKSUMS:
+  CYLTabBarController: 2de9a4c26f50d33574398becf8e7b0aaed794240
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+
+PODFILE CHECKSUM: 483deee91696f3fff3c961c9e87c5ff936a8fef1
+
+COCOAPODS: 1.2.1.beta.1

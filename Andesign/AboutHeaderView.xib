@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AboutHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QZ8-8H-IqZ">
+                    <rect key="frame" x="148" y="50" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="6Xk-25-tLz"/>
+                        <constraint firstAttribute="width" constant="80" id="amT-tp-hFf"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mm-Xa-rvO">
+                    <rect key="frame" x="148" y="50" width="80" height="80"/>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="koT-PZ-0gq">
+                    <rect key="frame" x="184" y="140" width="8" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="jA2-Nf-gTs"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="1mm-Xa-rvO" firstAttribute="centerX" secondItem="QZ8-8H-IqZ" secondAttribute="centerX" id="4Hv-lj-UOI"/>
+                <constraint firstItem="QZ8-8H-IqZ" firstAttribute="centerX" secondItem="koT-PZ-0gq" secondAttribute="centerX" id="DS5-PG-o7t"/>
+                <constraint firstItem="1mm-Xa-rvO" firstAttribute="trailing" secondItem="QZ8-8H-IqZ" secondAttribute="trailing" id="Kbn-tD-FKl"/>
+                <constraint firstItem="1mm-Xa-rvO" firstAttribute="leading" secondItem="QZ8-8H-IqZ" secondAttribute="leading" id="TFk-OR-YJk"/>
+                <constraint firstItem="QZ8-8H-IqZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="X6U-Nx-ugl"/>
+                <constraint firstItem="1mm-Xa-rvO" firstAttribute="centerY" secondItem="QZ8-8H-IqZ" secondAttribute="centerY" id="a1P-9g-zY3"/>
+                <constraint firstItem="1mm-Xa-rvO" firstAttribute="top" secondItem="QZ8-8H-IqZ" secondAttribute="top" id="aEa-7Z-0pR"/>
+                <constraint firstItem="koT-PZ-0gq" firstAttribute="top" secondItem="1mm-Xa-rvO" secondAttribute="bottom" constant="10" id="gaq-Dh-u0t"/>
+                <constraint firstItem="QZ8-8H-IqZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="j10-ZL-BR3"/>
+                <constraint firstItem="1mm-Xa-rvO" firstAttribute="bottom" secondItem="QZ8-8H-IqZ" secondAttribute="bottom" id="mlY-e9-ELz"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="iconButton" destination="1mm-Xa-rvO" id="PmE-cs-lQv"/>
+                <outlet property="iconImgView" destination="QZ8-8H-IqZ" id="M3d-Kj-BSe"/>
+                <outlet property="nickNameLabel" destination="koT-PZ-0gq" id="gMc-1F-6PD"/>
+            </connections>
+        </view>
+    </objects>
+</document>
