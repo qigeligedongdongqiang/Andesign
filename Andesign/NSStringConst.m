@@ -13,5 +13,8 @@
 NSString *const kDataBaseName = @"AndDesign.sqlite";
 NSString *const kMineInfoTableName = @"MineInfo";
 NSString *const kDesignTableName = @"Design";
+NSString *const kPhotographyTableName = @"Photography";
+NSString *const kDesignImageTableName = @"DesignImage";
+NSString *const kPhotographyImageTableName = @"PhotographyImage";
 
 @end

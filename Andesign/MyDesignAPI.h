@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^completeBlock)(BOOL isSuccess,NSNumber *relateId);
+
 @class DesignModel;
 
 @interface MyDesignAPI : NSObject
 
 + (instancetype)shareManager;
 
-- (void)upLoadDesign:(DesignModel *)designModel IsSuccess:(void (^)(BOOL isSuccess))isSuccess;
+- (void)upLoadDesign:(DesignModel *)designModel complete:(completeBlock)completeAction;
 - (void)getDesigns:(void (^)(NSArray *modelArr))modelArr;
 - (void)getDesign:(void (^)(DesignModel *designModel))designModel WithDesignId:(NSNumber *)designId;
 

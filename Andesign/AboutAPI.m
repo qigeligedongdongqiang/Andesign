@@ -22,7 +22,13 @@
 
 - (void)upLoadUserInfo:(MineModel *)mineModel IsSuccess:(void (^)(BOOL isSuccess))isSuccess {
     JQFMDB *db = [JQFMDB shareDatabase:kDataBaseName];
-    [db jq_createTable:kMineInfoTableName dicOrModel:[MineModel class] primaryKey:@"userId"];
+    BOOL isCreate = [db jq_createTable:kMineInfoTableName dicOrModel:[MineModel class] primaryKey:@"userId"];
+    if (!isCreate) {
+        BOOL isExist = [db jq_isExistTable:kMineInfoTableName];
+        if (!isExist) {
+            isSuccess(NO);
+        }
+    }
     NSString *sqlStr = [NSString stringWithFormat:@"where userId = %@",mineModel.userId];
     NSArray *models = [db jq_lookupTable:kMineInfoTableName dicOrModel:[MineModel class] whereFormat:sqlStr];
     if (models.count>0) {

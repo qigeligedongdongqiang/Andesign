@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class YYTextView;
+@class UIPlaceHolderTextView;
 
 @interface EditTextViewTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) YYTextView *detailTextView;
+@property (nonatomic, strong) UIPlaceHolderTextView *detailTextView;
 
 @end

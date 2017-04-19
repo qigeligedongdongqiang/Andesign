@@ -14,7 +14,8 @@
 
 + (instancetype)shareManager;
 
-//- (void)upLoadImages:(DesignModel *)designModel IsSuccess:(void (^)(BOOL isSuccess))isSuccess;
+- (void)upLoadDesignImages:(NSArray *)imageModels IsSuccess:(void (^)(BOOL isSuccess))isSuccess;
+- (void)upLoadPhotographyImages:(NSArray *)imageModels IsSuccess:(void (^)(BOOL isSuccess))isSuccess;
 //- (void)getDesigns:(void (^)(NSArray *modelArr))modelArr;
 //- (void)getDesign:(void (^)(DesignModel *designModel))designModel WithDesignId:(NSNumber *)designId;
 

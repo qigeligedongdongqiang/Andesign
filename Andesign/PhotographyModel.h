@@ -2,12 +2,17 @@
 //  PhotographyModel.h
 //  Andesign
 //
-//  Created by Ngmm_Jadon on 2017/3/29.
+//  Created by Ngmm_Jadon on 2017/4/18.
 //  Copyright © 2017年 Ngmm_Jadon. All rights reserved.
 //
 
-#import "EditDesignModel.h"
+#import <Foundation/Foundation.h>
 
-@interface PhotographyModel : EditDesignModel
+@interface PhotographyModel : NSObject
+
+@property (nonatomic, copy) NSNumber *photographyId;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *summary;
+@property (nonatomic, copy) NSString *detailText;
 
 @end

@@ -8,15 +8,13 @@
 
 #import "BaseTableViewController.h"
 
-typedef enum {
-    PageTypeDesign,
-    PageTypePhotography
-}PageType;
-
-@class EditDesignModel;
+@class DesignModel;
+@class PhotographyModel;
 
 @interface EditViewController : BaseTableViewController
 
-- (instancetype)initWithPageType:(PageType)pageType EditModel:(EditDesignModel *)editModel;
+- (instancetype)initDesignWithDesignModel:(DesignModel *)designModel;
+
+- (instancetype)initPhotographyWithphotographyModel:(PhotographyModel *)photographyModel;
 
 @end

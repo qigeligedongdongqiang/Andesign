@@ -7,7 +7,7 @@
 //
 
 #import "EditTextViewTableViewCell.h"
-#import "YYText.h"
+#import "UIPlaceHolderTextView.h"
 
 @implementation EditTextViewTableViewCell
 
@@ -30,10 +30,10 @@
     self.titleLabel.font = [UIFont systemFontOfSize:17];
     [self addSubview:self.titleLabel];
     
-    self.detailTextView = [YYTextView new];
+    self.detailTextView = [[UIPlaceHolderTextView alloc] init];
     self.detailTextView.font = [UIFont systemFontOfSize:14];
     self.detailTextView.textColor = [UIColor blackColor];
-    self.detailTextView.placeholderTextColor = HEXCOLOR(0xCCCCCC);
+    self.detailTextView.placeholderColor = HEXCOLOR(0xCCCCCC);
     [self addSubview:self.detailTextView];
 }
 
@@ -43,7 +43,7 @@
         make.top.equalTo(self).offset(12);
     }];
     [_detailTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(12);
+        make.top.equalTo(self).offset(5);
         make.right.bottom.equalTo(self);
         make.left.equalTo(_titleLabel.mas_right);
     }];

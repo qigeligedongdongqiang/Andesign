@@ -79,7 +79,7 @@
 }
 
 - (void)right_button_event:(UIButton *)sender {
-    EditViewController *editVC = [[EditViewController alloc] initWithPageType:PageTypeDesign EditModel:nil];
+    EditViewController *editVC = [[EditViewController alloc] initDesignWithDesignModel:nil];
     [self.navigationController pushViewController:editVC animated:YES];
 }
 

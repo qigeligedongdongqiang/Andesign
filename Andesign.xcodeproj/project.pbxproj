@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		842727361E8B90E5009044E3 /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 842727351E8B90E5009044E3 /* ImageModel.m */; };
-		842727391E8B93CC009044E3 /* DesignModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 842727381E8B93CC009044E3 /* DesignModel.m */; };
-		8427273C1E8B93F1009044E3 /* PhotographyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427273B1E8B93F1009044E3 /* PhotographyModel.m */; };
 		842727431E8E36C5009044E3 /* PhotoGraphyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842727421E8E36C5009044E3 /* PhotoGraphyViewController.m */; };
 		842727461E8E3792009044E3 /* WaterFlowCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 842727451E8E3792009044E3 /* WaterFlowCollectionViewLayout.m */; };
 		8427274A1E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 842727481E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.m */; };
 		8427274B1E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842727491E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.xib */; };
 		842727561E8F7F8A009044E3 /* ImageAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 842727551E8F7F8A009044E3 /* ImageAPI.m */; };
 		84DA4E831EA5EF7E009326D9 /* EditTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4E821EA5EF7E009326D9 /* EditTextViewTableViewCell.m */; };
+		84DA4E901EA60FE4009326D9 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4E8F1EA60FE4009326D9 /* UIPlaceHolderTextView.m */; };
+		84DA4E931EA620DB009326D9 /* DesignModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4E921EA620DB009326D9 /* DesignModel.m */; };
+		84DA4E961EA620FC009326D9 /* PhotographyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4E951EA620FC009326D9 /* PhotographyModel.m */; };
 		84E4D91B1E88A27700D6CCE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4D91A1E88A27700D6CCE4 /* main.m */; };
 		84E4D91E1E88A27700D6CCE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4D91D1E88A27700D6CCE4 /* AppDelegate.m */; };
 		84E4D9261E88A27700D6CCE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E4D9251E88A27700D6CCE4 /* Assets.xcassets */; };
@@ -67,7 +68,6 @@
 		84E4DA451E8A90A400D6CCE4 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4DA441E8A90A400D6CCE4 /* ImageHelper.m */; };
 		84E4DA491E8A922800D6CCE4 /* EditImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4DA471E8A922800D6CCE4 /* EditImageCollectionViewCell.m */; };
 		84E4DA4A1E8A922800D6CCE4 /* EditImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E4DA481E8A922800D6CCE4 /* EditImageCollectionViewCell.xib */; };
-		84E4DA501E8B646800D6CCE4 /* EditDesignModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4DA4F1E8B646800D6CCE4 /* EditDesignModel.m */; };
 		8C993B0610D10AC32FEABEF8 /* libPods-Andesign.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4AD8C63479EA11DDCA856B /* libPods-Andesign.a */; };
 /* End PBXBuildFile section */
 
@@ -75,10 +75,6 @@
 		2B3A5B72917F1763552AD8F0 /* Pods-Andesign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Andesign.release.xcconfig"; path = "Pods/Target Support Files/Pods-Andesign/Pods-Andesign.release.xcconfig"; sourceTree = "<group>"; };
 		842727341E8B90E5009044E3 /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
 		842727351E8B90E5009044E3 /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
-		842727371E8B93CC009044E3 /* DesignModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignModel.h; sourceTree = "<group>"; };
-		842727381E8B93CC009044E3 /* DesignModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignModel.m; sourceTree = "<group>"; };
-		8427273A1E8B93F1009044E3 /* PhotographyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotographyModel.h; sourceTree = "<group>"; };
-		8427273B1E8B93F1009044E3 /* PhotographyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotographyModel.m; sourceTree = "<group>"; };
 		842727411E8E36C5009044E3 /* PhotoGraphyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGraphyViewController.h; sourceTree = "<group>"; };
 		842727421E8E36C5009044E3 /* PhotoGraphyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGraphyViewController.m; sourceTree = "<group>"; };
 		842727441E8E3792009044E3 /* WaterFlowCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowCollectionViewLayout.h; sourceTree = "<group>"; };
@@ -90,6 +86,12 @@
 		842727551E8F7F8A009044E3 /* ImageAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAPI.m; sourceTree = "<group>"; };
 		84DA4E811EA5EF7E009326D9 /* EditTextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTextViewTableViewCell.h; sourceTree = "<group>"; };
 		84DA4E821EA5EF7E009326D9 /* EditTextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTextViewTableViewCell.m; sourceTree = "<group>"; };
+		84DA4E8E1EA60FE4009326D9 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		84DA4E8F1EA60FE4009326D9 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		84DA4E911EA620DB009326D9 /* DesignModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignModel.h; sourceTree = "<group>"; };
+		84DA4E921EA620DB009326D9 /* DesignModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignModel.m; sourceTree = "<group>"; };
+		84DA4E941EA620FC009326D9 /* PhotographyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotographyModel.h; sourceTree = "<group>"; };
+		84DA4E951EA620FC009326D9 /* PhotographyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotographyModel.m; sourceTree = "<group>"; };
 		84E4D9161E88A27700D6CCE4 /* Andesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Andesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E4D91A1E88A27700D6CCE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84E4D91C1E88A27700D6CCE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -185,8 +187,6 @@
 		84E4DA461E8A922800D6CCE4 /* EditImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditImageCollectionViewCell.h; sourceTree = "<group>"; };
 		84E4DA471E8A922800D6CCE4 /* EditImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditImageCollectionViewCell.m; sourceTree = "<group>"; };
 		84E4DA481E8A922800D6CCE4 /* EditImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditImageCollectionViewCell.xib; sourceTree = "<group>"; };
-		84E4DA4E1E8B646800D6CCE4 /* EditDesignModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDesignModel.h; sourceTree = "<group>"; };
-		84E4DA4F1E8B646800D6CCE4 /* EditDesignModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDesignModel.m; sourceTree = "<group>"; };
 		BD4AD8C63479EA11DDCA856B /* libPods-Andesign.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Andesign.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C969BE87C5D013E98197AE1F /* Pods-Andesign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Andesign.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Andesign/Pods-Andesign.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -450,8 +450,8 @@
 		84E4D9D81E88FF8800D6CCE4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				842727371E8B93CC009044E3 /* DesignModel.h */,
-				842727381E8B93CC009044E3 /* DesignModel.m */,
+				84DA4E911EA620DB009326D9 /* DesignModel.h */,
+				84DA4E921EA620DB009326D9 /* DesignModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -466,8 +466,8 @@
 		84E4D9DA1E89004F00D6CCE4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8427273A1E8B93F1009044E3 /* PhotographyModel.h */,
-				8427273B1E8B93F1009044E3 /* PhotographyModel.m */,
+				84DA4E941EA620FC009326D9 /* PhotographyModel.h */,
+				84DA4E951EA620FC009326D9 /* PhotographyModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -503,8 +503,6 @@
 			children = (
 				84E4D9EF1E890F2B00D6CCE4 /* MineModel.h */,
 				84E4D9F01E890F2B00D6CCE4 /* MineModel.m */,
-				84E4DA4E1E8B646800D6CCE4 /* EditDesignModel.h */,
-				84E4DA4F1E8B646800D6CCE4 /* EditDesignModel.m */,
 				842727341E8B90E5009044E3 /* ImageModel.h */,
 				842727351E8B90E5009044E3 /* ImageModel.m */,
 			);
@@ -534,6 +532,8 @@
 				84E4DA481E8A922800D6CCE4 /* EditImageCollectionViewCell.xib */,
 				84DA4E811EA5EF7E009326D9 /* EditTextViewTableViewCell.h */,
 				84DA4E821EA5EF7E009326D9 /* EditTextViewTableViewCell.m */,
+				84DA4E8E1EA60FE4009326D9 /* UIPlaceHolderTextView.h */,
+				84DA4E8F1EA60FE4009326D9 /* UIPlaceHolderTextView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -734,14 +734,13 @@
 				84E4D9771E88B6D700D6CCE4 /* UIImage+Orientation.m in Sources */,
 				842727561E8F7F8A009044E3 /* ImageAPI.m in Sources */,
 				84E4D91B1E88A27700D6CCE4 /* main.m in Sources */,
+				84DA4E901EA60FE4009326D9 /* UIPlaceHolderTextView.m in Sources */,
 				84E4D9F11E890F2B00D6CCE4 /* MineModel.m in Sources */,
 				84E4DA021E89254500D6CCE4 /* AboutTableViewCell.m in Sources */,
-				84E4DA501E8B646800D6CCE4 /* EditDesignModel.m in Sources */,
 				84E4DA131E8A472B00D6CCE4 /* MyDesignAPI.m in Sources */,
 				84E4D9781E88B6D700D6CCE4 /* UIImage+PDF.m in Sources */,
 				84E4D93D1E88AEDE00D6CCE4 /* MainNavigationController.m in Sources */,
 				84E4D9F51E8910B800D6CCE4 /* AboutAPI.m in Sources */,
-				8427273C1E8B93F1009044E3 /* PhotographyModel.m in Sources */,
 				84E4D9761E88B6D700D6CCE4 /* UIImage+Merge.m in Sources */,
 				8427274A1E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.m in Sources */,
 				842727431E8E36C5009044E3 /* PhotoGraphyViewController.m in Sources */,
@@ -769,8 +768,9 @@
 				84E4DA161E8A4AF000D6CCE4 /* EditViewController.m in Sources */,
 				84E4D93A1E88AEB800D6CCE4 /* MainTabBarController.m in Sources */,
 				84E4D9731E88B6D700D6CCE4 /* UIImage+FileName.m in Sources */,
-				842727391E8B93CC009044E3 /* DesignModel.m in Sources */,
 				84E4D9FE1E8915D100D6CCE4 /* NSStringConst.m in Sources */,
+				84DA4E961EA620FC009326D9 /* PhotographyModel.m in Sources */,
+				84DA4E931EA620DB009326D9 /* DesignModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,5 +13,8 @@
 UIKIT_EXTERN NSString *const kDataBaseName;
 UIKIT_EXTERN NSString *const kMineInfoTableName;
 UIKIT_EXTERN NSString *const kDesignTableName;
+UIKIT_EXTERN NSString *const kPhotographyTableName;
+UIKIT_EXTERN NSString *const kDesignImageTableName;
+UIKIT_EXTERN NSString *const kPhotographyImageTableName;
 
 @end

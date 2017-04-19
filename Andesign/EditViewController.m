@@ -13,14 +13,14 @@
 #import "EditTextViewTableViewCell.h"
 
 #import "QBImagePickerController.h"
-#import "YYText.h"
-#import "IQKeyboardManager.h"
+#import "UIPlaceHolderTextView.h"
 
-#import "EditDesignModel.h"
 #import "DesignModel.h"
+#import "PhotographyModel.h"
 #import "ImageModel.h"
 
 #import "MyDesignAPI.h"
+#import "ImageAPI.h"
 
 #define kMainImgNumber 1
 #define kDetailImgNumber 18
@@ -28,17 +28,24 @@
 #define kMargin 10
 
 typedef enum {
+    PageTypeDesign,
+    PageTypePhotography
+}PageType;
+
+typedef enum {
     ImgTypeNone,
     ImgTypeMain,
     ImgTypeDetail
 }ImgType;
 
-@interface EditViewController ()<UITextFieldDelegate,QBImagePickerControllerDelegate,YYTextViewDelegate>
+@interface EditViewController ()<UITextFieldDelegate,UITextViewDelegate,QBImagePickerControllerDelegate>
 
 @property (nonatomic, assign) PageType pageType;
+
 @property (nonatomic, assign) ImgType imgType;
 
-@property (nonatomic, strong) EditDesignModel *editModel;
+@property (nonatomic, strong) DesignModel *designModel;
+@property (nonatomic, strong) PhotographyModel *photographyModel;
 
 @property (nonatomic, copy) NSString *titleStr;
 @property (nonatomic, copy) NSString *summaryStr;
@@ -52,16 +59,26 @@ typedef enum {
  */
 @property (nonatomic, strong) NSMutableArray *detailImgArr;
 
-@property (nonatomic, assign) BOOL wasKeyboardManagerEnabled;
+@property (nonatomic, strong) UITextField *titleTextField;
+@property (nonatomic, strong) UITextField *summaryTextField;
+@property (nonatomic, strong) UIPlaceHolderTextView *detailTextView;
 
 @end
 
 @implementation EditViewController
 
-- (instancetype)initWithPageType:(PageType)pageType EditModel:(EditDesignModel *)editModel {
+- (instancetype)initDesignWithDesignModel:(DesignModel *)designModel {
     if (self = [super init]) {
-        _pageType = pageType;
-        _editModel = editModel;
+        _designModel = designModel;
+        _pageType = PageTypeDesign;
+    }
+    return self;
+}
+
+- (instancetype)initPhotographyWithphotographyModel:(PhotographyModel *)photographyModel {
+    if (self = [super init]) {
+        _photographyModel = photographyModel;
+        _pageType = PageTypePhotography;
     }
     return self;
 }
@@ -69,23 +86,22 @@ typedef enum {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _wasKeyboardManagerEnabled = [[IQKeyboardManager sharedManager] isEnabled];
-    [[IQKeyboardManager sharedManager] setEnable:NO];
-    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(inPutDone) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
-    if (self.editModel) {
-        if (self.pageType == PageTypeDesign) {//获取设计相关数据源
-            self.navigationItem.title = @"编辑设计";
-            
-        } else if (self.pageType == PageTypePhotography) {//获取图册相关数据源
-            self.navigationItem.title = @"编辑图册";
+    if (self.pageType == PageTypeDesign) {
+        self.navigationItem.title = @"编辑设计";
+        if (self.designModel) {
+            [self getImageInfoWithDesignModel:self.designModel];
+        } else {
+            self.mainImgArr = [NSMutableArray array];
+            self.detailImgArr = [NSMutableArray array];
         }
-        [self getInfoWithEditModel:self.editModel];
-    } else {
-        self.mainImgArr = [NSMutableArray array];
-        self.detailImgArr = [NSMutableArray array];
+    } else if (self.pageType == PageTypePhotography) {
+        self.navigationItem.title = @"编辑图册";
+        if (self.photographyModel) {
+            [self getImageInfoWithPhotographyModel:self.photographyModel];
+        } else {
+            self.mainImgArr = [NSMutableArray array];
+            self.detailImgArr = [NSMutableArray array];
+        }
     }
     
     self.imgType = ImgTypeNone;
@@ -101,21 +117,76 @@ typedef enum {
 }
 
 #pragma mark -API
-- (void)getInfoWithEditModel:(EditDesignModel *)editModel {
+- (void)getImageInfoWithDesignModel:(DesignModel *)designModel {
+    
+}
+
+- (void)getImageInfoWithPhotographyModel:(PhotographyModel *)photographyModel {
     
 }
 
 - (void)saveInfo {
-    DesignModel *editModel = [[DesignModel alloc] init];
+    [self.view endEditing:YES];
     
-    editModel.title = @"lalalala";
-    editModel.summary = @"wwwwwwwww";
+    if (self.mainImgArr.count == 0) {
+        [MBProgressHUD showAutoMessage:@"主图不能为空" ToView:nil];
+    }
     
-    editModel.detailText = @"haoahaoaao";
+    if (self.titleTextField.text.length == 0) {
+        [MBProgressHUD showAutoMessage:@"标题不能为空" ToView:nil];
+        return;
+    }
+    if (self.summaryTextField.text.length == 0) {
+        [MBProgressHUD showAutoMessage:@"摘要不能为空" ToView:nil];
+        return;
+    }
+    if (self.detailTextView.text.length == 0) {
+        [MBProgressHUD showAutoMessage:@"详细描述不能为空" ToView:nil];
+        return;
+    }
     
-    [[MyDesignAPI shareManager] upLoadDesign:editModel IsSuccess:^(BOOL isSuccess) {
+    if (self.detailImgArr.count == 0) {
+        [MBProgressHUD showAutoMessage:@"详情图片不能为空" ToView:nil];
+    }
+    
+    if (self.pageType == PageTypeDesign) {
+        DesignModel *designModel = [[DesignModel alloc] init];
+        designModel.designId = @1;
+        designModel.title = self.titleTextField.text;
+        designModel.summary = self.summaryTextField.text;
+        designModel.detailText = self.detailTextView.text;
         
-    }];
+        MPWeakSelf(self)
+        [[MyDesignAPI shareManager] upLoadDesign:designModel complete:^(BOOL isSuccess, NSNumber *relateId) {
+//            NSLog(@"%zd，%@",isSuccess,relateId);
+            MPStrongSelf(self)
+            if (isSuccess) {
+                
+                for (ImageModel *imageModel in strongself.mainImgArr) {
+                    imageModel.relateId = relateId;
+                }
+                [[ImageAPI shareManager] upLoadDesignImages:strongself.mainImgArr IsSuccess:^(BOOL isSuccess) {
+                    if (!isSuccess) {
+                        [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
+                    }
+                }];
+                
+                for (ImageModel *imageModel in strongself.detailImgArr) {
+                    imageModel.relateId = relateId;
+                }
+                [[ImageAPI shareManager] upLoadDesignImages:strongself.detailImgArr IsSuccess:^(BOOL isSuccess) {
+                    if (!isSuccess) {
+                        [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
+                    }
+                }];
+                
+            } else {
+                [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
+            }
+        }];
+    } else if (self.pageType == PageTypePhotography) {
+        
+    }
 }
 
 #pragma mark - dataSource
@@ -144,21 +215,35 @@ typedef enum {
     } else if (indexPath.row == 1) {
         EditNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([EditNormalTableViewCell class])];
         cell.titleLabel.text = @"标题：";
+        self.titleTextField = cell.inputTextField;
         cell.inputTextField.placeholder = @"请输入标题";
         cell.inputTextField.delegate = self;
         cell.inputTextField.tag = 10;
-        if (self.editModel.title) {
-            cell.inputTextField.text = self.editModel.title;
+        if (self.pageType == PageTypeDesign) {
+            if (self.designModel.title) {
+                cell.inputTextField.text = self.designModel.title;
+            }
+        } else if (self.pageType == PageTypePhotography) {
+            if (self.photographyModel.title) {
+                cell.inputTextField.text = self.photographyModel.title;
+            }
         }
         return cell;
     } else if (indexPath.row == 2) {
         EditNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([EditNormalTableViewCell class])];
         cell.titleLabel.text = @"摘要：";
+        self.summaryTextField = cell.inputTextField;
         cell.inputTextField.placeholder = @"请输入摘要";
         cell.inputTextField.delegate = self;
         cell.inputTextField.tag = 20;
-        if (self.editModel.summary) {
-            cell.inputTextField.text = self.editModel.summary;
+        if (self.pageType == PageTypeDesign) {
+            if (self.designModel.summary) {
+                cell.inputTextField.text = self.designModel.summary;
+            }
+        } else if (self.pageType == PageTypePhotography) {
+            if (self.photographyModel.summary) {
+                cell.inputTextField.text = self.photographyModel.summary;
+            }
         }
         return cell;
     } else if (indexPath.row == 3) {
@@ -180,10 +265,17 @@ typedef enum {
     } else if (indexPath.row == 4) {
         EditTextViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([EditTextViewTableViewCell class])];
         cell.titleLabel.text = @"详细描述：";
-        cell.detailTextView.placeholderText = @"请输入详细的描述";
+        self.detailTextView = cell.detailTextView;
+        cell.detailTextView.placeholder = @"请输入详细的描述";
         cell.detailTextView.delegate = self;
-        if (self.editModel.detailText) {
-            cell.detailTextView.text = self.editModel.detailText;
+        if (self.pageType == PageTypeDesign) {
+            if (self.designModel.detailText) {
+                cell.detailTextView.text = self.designModel.detailText;
+            }
+        } else if (self.pageType == PageTypePhotography) {
+            if (self.photographyModel.detailText) {
+                cell.detailTextView.text = self.photographyModel.detailText;
+            }
         }
         return cell;
     }
@@ -208,7 +300,7 @@ typedef enum {
         CGFloat height = cellWidthHeight * row + kMargin * (row - 1) + 50;
         return height;
     } else if (indexPath.row == 4) {
-        return 150;
+        return 250;
     }
     return 0;
 }
@@ -332,12 +424,6 @@ UIImageOrientation orientation,NSDictionary *info) {
 
 - (NSArray *)cellReuseId {
     return @[NSStringFromClass([EditNormalTableViewCell class]),NSStringFromClass([EditImageTableViewCell class])];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [[IQKeyboardManager sharedManager] setEnable:_wasKeyboardManagerEnabled];
-    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
 }
 
 - (void)didReceiveMemoryWarning {
