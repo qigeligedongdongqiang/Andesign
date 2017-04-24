@@ -64,4 +64,21 @@
     [db close];
 }
 
+- (void)deleteDesignWithDesignId:(NSNumber *)designId isSuccess:(void (^)(BOOL))isSuccess {
+    JQFMDB *db = [JQFMDB shareDatabase:kDataBaseName];
+    BOOL isExist = [db jq_isExistTable:kDesignTableName];
+    if (isExist) {
+        NSString *sqlStr = [NSString stringWithFormat:@"where designId = %@",designId];
+        BOOL isDelete = [db jq_deleteTable:kDesignTableName whereFormat:sqlStr];
+        if (isDelete) {
+            isSuccess(YES);
+        } else {
+            isSuccess(NO);
+        }
+    } else {
+        isSuccess(NO);
+    }
+    [db close];
+}
+
 @end

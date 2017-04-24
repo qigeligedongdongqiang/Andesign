@@ -158,34 +158,46 @@ typedef enum {
     }
     
     if (self.pageType == PageTypeDesign) {
-        DesignModel *designModel = [[DesignModel alloc] init];
-        designModel.designId = @1;
-        designModel.mainImg = [self.mainImgArr.firstObject img];
-        designModel.title = self.titleTextField.text;
-        designModel.summary = self.summaryTextField.text;
-        designModel.detailText = self.detailTextView.text;
-        
-        MPWeakSelf(self)
-        [[MyDesignAPI shareManager] upLoadDesign:designModel complete:^(BOOL isSuccess, NSNumber *relateId) {
-            MPStrongSelf(self)
-            if (isSuccess) {
-                for (ImageModel *imageModel in strongself.detailImgArr) {
-                    imageModel.relateId = relateId;
-                }
-                [[ImageAPI shareManager] upLoadDesignImages:strongself.detailImgArr IsSuccess:^(BOOL isSuccess) {
-                    if (!isSuccess) {
-                        [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
-                    } else {
-                        [strongself.navigationController popViewControllerAnimated:YES];
-                    }
-                }];
-            } else {
-                [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
-            }
-        }];
+        if (self.designModel) {
+            self.designModel.mainImg = [self.mainImgArr.firstObject img];
+            self.designModel.title = self.titleTextField.text;
+            self.designModel.summary = self.summaryTextField.text;
+            self.designModel.detailText = self.detailTextView.text;
+            
+            [self upLoadDesign:self.designModel];
+        } else {
+            DesignModel *designModel = [[DesignModel alloc] init];
+            designModel.mainImg = [self.mainImgArr.firstObject img];
+            designModel.title = self.titleTextField.text;
+            designModel.summary = self.summaryTextField.text;
+            designModel.detailText = self.detailTextView.text;
+            
+            [self upLoadDesign:designModel];
+        }
     } else if (self.pageType == PageTypePhotography) {
         
     }
+}
+
+- (void)upLoadDesign:(DesignModel *)designModel {
+    MPWeakSelf(self)
+    [[MyDesignAPI shareManager] upLoadDesign:designModel complete:^(BOOL isSuccess, NSNumber *relateId) {
+        MPStrongSelf(self)
+        if (isSuccess) {
+            for (ImageModel *imageModel in strongself.detailImgArr) {
+                imageModel.relateId = relateId;
+            }
+            [[ImageAPI shareManager] upLoadDesignImages:strongself.detailImgArr IsSuccess:^(BOOL isSuccess) {
+                if (!isSuccess) {
+                    [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
+                } else {
+                    [strongself.navigationController popViewControllerAnimated:YES];
+                }
+            }];
+        } else {
+            [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
+        }
+    }];
 }
 
 #pragma mark - dataSource

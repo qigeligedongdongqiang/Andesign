@@ -57,10 +57,7 @@
         MineModel *mine = [mineModels firstObject];
         mineModel(mine);
     } else {
-        MineModel *model = [[MineModel alloc] init];
-        model.iconImg = UIImagePNGRepresentation([UIImage imageNamed:@"user_icon"]);
-        model.nickName = @"请输入昵称";
-        mineModel(model);
+        mineModel(nil);
     }
     [db close];
 }

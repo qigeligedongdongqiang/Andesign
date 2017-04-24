@@ -16,7 +16,11 @@
 
 - (void)upLoadDesignImages:(NSArray *)imageModels IsSuccess:(void (^)(BOOL isSuccess))isSuccess;
 - (void)upLoadPhotographyImages:(NSArray *)imageModels IsSuccess:(void (^)(BOOL isSuccess))isSuccess;
+
 - (void)getDesignImages:(void (^)(NSArray *modelArr))modelArr WithRelateId:(NSNumber *)relateId;
-//- (void)getDesign:(void (^)(DesignModel *designModel))designModel WithDesignId:(NSNumber *)designId;
+- (void)getPhotographyImages:(void (^)(NSArray *modelArr))modelArr WithRelateId:(NSNumber *)relateId;
+
+- (void)deleteDesignImagesWithRelateId:(NSNumber *)relateId IsSuccess:(void (^)(BOOL isSuccess))isSuccess;
+- (void)deletePhotographyImagesWithRelateId:(NSNumber *)relateId IsSuccess:(void (^)(BOOL isSuccess))isSuccess;
 
 @end

@@ -52,10 +52,35 @@
     }];
 }
 
+- (void)upLoadUserInfo {
+    MineModel *mineModel = [[MineModel alloc] init];
+    mineModel.userId = self.mineModel.userId;
+    if (self.mineModel.nickName) {
+        mineModel.nickName = self.mineModel.nickName;
+    } else {
+        mineModel.nickName = @"";
+    }
+    if (self.mineModel.iconImg) {
+        mineModel.iconImg = self.mineModel.iconImg;
+    } else {
+        mineModel.iconImg = UIImagePNGRepresentation([UIImage imageNamed:@"user_icon"]);
+    }
+    
+    MPWeakSelf(self)
+    [[AboutAPI shareManager] upLoadUserInfo:mineModel IsSuccess:^(BOOL isSuccess) {
+        NSLog(@"%zd",isSuccess);
+        if (!isSuccess) {
+            [MBProgressHUD showInfo:@"上传个人信息失败,请重试" ToView:weakself.view];
+        }
+    }];
+}
+
 #pragma mark - addHeaderView
 - (void)addHeaderViewWithInfo:(MineModel *)model {
     AboutHeaderView *headerView = [AboutHeaderView viewFromXib];
-    headerView.mineModel = model;
+    if (model) {
+        headerView.mineModel = model;
+    }
     headerView.frame = CGRectMake(0, 0, Main_Screen_Width, 200);
     MPWeakSelf(self)
     headerView.buttonAction = ^() {
@@ -127,13 +152,7 @@
     
     //头像上传
     self.mineModel.iconImg = imageData;
-    MPWeakSelf(self)
-    [[AboutAPI shareManager] upLoadUserInfo:self.mineModel IsSuccess:^(BOOL isSuccess) {
-        NSLog(@"%zd",isSuccess);
-        if (!isSuccess) {
-            [MBProgressHUD showInfo:@"上传头像失败,请重试" ToView:weakself.view];
-        }
-    }];
+    [self upLoadUserInfo];
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     
@@ -141,15 +160,9 @@
 
 #pragma mark - textFiled delegate
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    //头像上传
+    //昵称上传
     self.mineModel.nickName = textField.text;
-    MPWeakSelf(self)
-    [[AboutAPI shareManager] upLoadUserInfo:self.mineModel IsSuccess:^(BOOL isSuccess) {
-        NSLog(@"%zd",isSuccess);
-        if (!isSuccess) {
-            [MBProgressHUD showInfo:@"修改昵称失败,请重试" ToView:weakself.view];
-        }
-    }];
+    [self upLoadUserInfo];
 }
 
 #pragma mark - tableView dataSource
@@ -186,6 +199,13 @@
 
 - (NSArray *)cellReuseId {
     return @[NSStringFromClass([AboutTableViewCell class])];
+}
+
+- (MineModel *)mineModel {
+    if (!_mineModel) {
+        _mineModel = [[MineModel alloc] init];
+    }
+    return _mineModel;
 }
 
 - (void)didReceiveMemoryWarning {

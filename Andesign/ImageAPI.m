@@ -73,4 +73,51 @@
     [db close];
 }
 
+- (void)getPhotographyImages:(void (^)(NSArray *))modelArr WithRelateId:(NSNumber *)relateId{
+    JQFMDB *db = [JQFMDB shareDatabase:kDataBaseName];
+    BOOL isExist = [db jq_isExistTable:kPhotographyImageTableName];
+    if (isExist) {
+        NSString *sqlStr = [NSString stringWithFormat:@"where relateId = %@",relateId];
+        NSArray *photographyImageModels = [db jq_lookupTable:kPhotographyImageTableName dicOrModel:[ImageModel class] whereFormat:sqlStr];
+        modelArr(photographyImageModels);
+    } else {
+        modelArr(nil);
+    }
+    [db close];
+}
+
+- (void)deleteDesignImagesWithRelateId:(NSNumber *)relateId IsSuccess:(void (^)(BOOL))isSuccess {
+    JQFMDB *db = [JQFMDB shareDatabase:kDataBaseName];
+    BOOL isExist = [db jq_isExistTable:kDesignImageTableName];
+    if (isExist) {
+        NSString *sqlStr = [NSString stringWithFormat:@"where relateId = %@",relateId];
+        BOOL isDelete = [db jq_deleteTable:kDesignImageTableName whereFormat:sqlStr];
+        if (isDelete) {
+            isSuccess(YES);
+        } else {
+            isSuccess(NO);
+        }
+    } else {
+        isSuccess(NO);
+    }
+    [db close];
+}
+
+- (void)deletePhotographyImagesWithRelateId:(NSNumber *)relateId IsSuccess:(void (^)(BOOL))isSuccess {
+    JQFMDB *db = [JQFMDB shareDatabase:kDataBaseName];
+    BOOL isExist = [db jq_isExistTable:kPhotographyImageTableName];
+    if (isExist) {
+        NSString *sqlStr = [NSString stringWithFormat:@"where relateId = %@",relateId];
+        BOOL isDelete = [db jq_deleteTable:kPhotographyImageTableName whereFormat:sqlStr];
+        if (isDelete) {
+            isSuccess(YES);
+        } else {
+            isSuccess(NO);
+        }
+    } else {
+        isSuccess(NO);
+    }
+    [db close];
+}
+
 @end
