@@ -11,6 +11,7 @@
 @interface DesignModel : NSObject
 
 @property (nonatomic, copy) NSNumber *designId;
+@property (nonatomic, copy) NSData *mainImg;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *summary;
 @property (nonatomic, copy) NSString *detailText;

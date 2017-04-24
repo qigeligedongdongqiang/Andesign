@@ -11,6 +11,7 @@
 @interface PhotographyModel : NSObject
 
 @property (nonatomic, copy) NSNumber *photographyId;
+@property (nonatomic, copy) NSData *mainImg;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *summary;
 @property (nonatomic, copy) NSString *detailText;

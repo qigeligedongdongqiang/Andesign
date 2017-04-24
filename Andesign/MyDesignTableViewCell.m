@@ -19,7 +19,7 @@
 - (void)setDesignModel:(DesignModel *)designModel {
     _designModel = designModel;
     
-//    self.iconImgView.image = [UIImage imageWithData:designModel.mainImg];
+    self.iconImgView.image = [UIImage imageWithData:designModel.mainImg];
     self.titleLabel.text = designModel.title;
     self.summaryLabel.text = designModel.summary;
 }

@@ -53,11 +53,15 @@
 }
 
 - (void)getDesigns:(void (^)(NSArray *))modelArr {
-    
-}
-
-- (void)getDesign:(void (^)(DesignModel *))designModel WithDesignId:(NSNumber *)designId {
-    
+    JQFMDB *db = [JQFMDB shareDatabase:kDataBaseName];
+    BOOL isExist = [db jq_isExistTable:kDesignTableName];
+    if (isExist) {
+        NSArray *designModels = [db jq_lookupTable:kDesignTableName dicOrModel:[DesignModel class] whereFormat:nil];
+        modelArr(designModels);
+    } else {
+        modelArr(nil);
+    }
+    [db close];
 }
 
 @end

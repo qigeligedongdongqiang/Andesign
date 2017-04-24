@@ -11,9 +11,11 @@
 #import "DesignModel.h"
 #import "EditViewController.h"
 
+#import "MyDesignAPI.h"
+
 @interface MyDesignViewController ()
 
-@property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, strong) NSArray *designArr;
 
 @end
 
@@ -35,29 +37,43 @@
 
 #pragma mark - loadData
 - (void)loadData {
-    
+    MPWeakSelf(self)
+    [[MyDesignAPI shareManager] getDesigns:^(NSArray *modelArr) {
+        MPStrongSelf(self)
+        strongself.designArr = modelArr;
+        [strongself.tableView reloadData];
+    }];
 }
 
 #pragma mark - dataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.dataArr.count;
-    return 3;
+    return self.designArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MyDesignTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MyDesignTableViewCell class])];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DesignModel *designModel;
-    if (indexPath.row<self.dataArr.count) {
-        designModel = self.dataArr[indexPath
+    if (indexPath.row<self.designArr.count) {
+        designModel = self.designArr[indexPath
                                    .row];
     }
+    cell.designModel = designModel;
     return cell;
 }
 
 #pragma mark - delegate 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 120;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DesignModel *designModel;
+    if (indexPath.row<self.designArr.count) {
+        designModel = self.designArr[indexPath.row];
+    }
+    EditViewController *editVC = [[EditViewController alloc] initDesignWithDesignModel:designModel];
+    [self.navigationController pushViewController:editVC animated:YES];
 }
 
 #pragma mark - setConfig

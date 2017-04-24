@@ -86,27 +86,30 @@ typedef enum {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (self.pageType == PageTypeDesign) {
-        self.navigationItem.title = @"编辑设计";
-        if (self.designModel) {
-            [self getImageInfoWithDesignModel:self.designModel];
-        } else {
-            self.mainImgArr = [NSMutableArray array];
-            self.detailImgArr = [NSMutableArray array];
-        }
-    } else if (self.pageType == PageTypePhotography) {
-        self.navigationItem.title = @"编辑图册";
-        if (self.photographyModel) {
-            [self getImageInfoWithPhotographyModel:self.photographyModel];
-        } else {
-            self.mainImgArr = [NSMutableArray array];
-            self.detailImgArr = [NSMutableArray array];
-        }
-    }
+    self.mainImgArr = [NSMutableArray array];
+    self.detailImgArr = [NSMutableArray array];
     
     self.imgType = ImgTypeNone;
     
     [self.tableView registerClass:[EditTextViewTableViewCell class] forCellReuseIdentifier:NSStringFromClass([EditTextViewTableViewCell class])];
+    
+    if (self.pageType == PageTypeDesign) {
+        self.navigationItem.title = @"编辑设计";
+        if (self.designModel) {
+            ImageModel *mainImgModel = [[ImageModel alloc] init];
+            mainImgModel.img = self.designModel.mainImg;
+            [self.mainImgArr addObject:mainImgModel];
+            [self getImageInfoWithDesignModel:self.designModel];
+        }
+    } else if (self.pageType == PageTypePhotography) {
+        self.navigationItem.title = @"编辑图册";
+        if (self.photographyModel) {
+            ImageModel *mainImgModel = [[ImageModel alloc] init];
+            mainImgModel.img = self.photographyModel.mainImg;
+            [self.mainImgArr addObject:mainImgModel];
+            [self getImageInfoWithPhotographyModel:self.photographyModel];
+        }
+    }
     
 }
 
@@ -118,7 +121,12 @@ typedef enum {
 
 #pragma mark -API
 - (void)getImageInfoWithDesignModel:(DesignModel *)designModel {
-    
+    MPWeakSelf(self)
+    [[ImageAPI shareManager] getDesignImages:^(NSArray *modelArr) {
+        MPStrongSelf(self)
+        strongself.detailImgArr = modelArr.mutableCopy;
+        [strongself.tableView reloadData];
+    } WithRelateId:designModel.designId];
 }
 
 - (void)getImageInfoWithPhotographyModel:(PhotographyModel *)photographyModel {
@@ -152,34 +160,25 @@ typedef enum {
     if (self.pageType == PageTypeDesign) {
         DesignModel *designModel = [[DesignModel alloc] init];
         designModel.designId = @1;
+        designModel.mainImg = [self.mainImgArr.firstObject img];
         designModel.title = self.titleTextField.text;
         designModel.summary = self.summaryTextField.text;
         designModel.detailText = self.detailTextView.text;
         
         MPWeakSelf(self)
         [[MyDesignAPI shareManager] upLoadDesign:designModel complete:^(BOOL isSuccess, NSNumber *relateId) {
-//            NSLog(@"%zd，%@",isSuccess,relateId);
             MPStrongSelf(self)
             if (isSuccess) {
-                
-                for (ImageModel *imageModel in strongself.mainImgArr) {
-                    imageModel.relateId = relateId;
-                }
-                [[ImageAPI shareManager] upLoadDesignImages:strongself.mainImgArr IsSuccess:^(BOOL isSuccess) {
-                    if (!isSuccess) {
-                        [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
-                    }
-                }];
-                
                 for (ImageModel *imageModel in strongself.detailImgArr) {
                     imageModel.relateId = relateId;
                 }
                 [[ImageAPI shareManager] upLoadDesignImages:strongself.detailImgArr IsSuccess:^(BOOL isSuccess) {
                     if (!isSuccess) {
                         [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
+                    } else {
+                        [strongself.navigationController popViewControllerAnimated:YES];
                     }
                 }];
-                
             } else {
                 [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
             }
@@ -371,13 +370,7 @@ UIImageOrientation orientation,NSDictionary *info) {
              }];
         }
         ImageModel *model = [[ImageModel alloc] init];
-        model.widthHeightScale = [NSNumber numberWithInteger:(asset.pixelWidth/asset.pixelHeight)];
         model.img = data;
-        if (self.imgType == ImgTypeMain) {
-            model.isMain = YES;
-        } else if (self.imgType == ImgTypeDetail) {
-            model.isMain = NO;
-        }
         [tempArr addObject:model];
     }
     if (self.imgType == ImgTypeMain) {

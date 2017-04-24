@@ -30,29 +30,13 @@
         }
     }
     NSString *sqlStr = [NSString stringWithFormat:@"where relateId = %@",[imageModels[0] relateId]];
-//    BOOL isInsert = [db jq_insertTable:kDesignImageTableName dicOrModelArray:imageModels];
-//    if (isInsert) {
-//        isSuccess(YES);
-//    } else {
-//        isSuccess(NO);
-//    }
-
-//    NSArray *models = [db jq_lookupTable:kDesignImageTableName dicOrModel:[ImageModel class] whereFormat:sqlStr];
-//    if (models.count>0) {
-//        BOOL isUpdate = [db jq_updateTable:kDesignImageTableName dicOrModel:imageModel whereFormat:sqlStr];
-//        if (isUpdate) {
-//            isSuccess(YES);
-//        } else {
-//            isSuccess(NO);
-//        }
-//    } else {
-//        BOOL isInsert = [db jq_insertTable:kDesignImageTableName dicOrModel:imageModel];
-//        if (isInsert) {
-//            isSuccess(YES);
-//        } else {
-//            isSuccess(NO);
-//        }
-//    }
+    BOOL isDelete = [db jq_deleteTable:kDesignImageTableName whereFormat:sqlStr];
+    BOOL isInsert = [db jq_insertTable:kDesignImageTableName dicOrModelArray:imageModels];
+    if (isDelete && isInsert) {
+        isSuccess(YES);
+    } else {
+        isSuccess(NO);
+    }
     [db close];
 }
 
@@ -65,25 +49,28 @@
             isSuccess(NO);
         }
     }
-    NSString *sqlStr = [NSString stringWithFormat:@"where relateId = %@",imageModel.relateId];
-    NSArray *models = [db jq_lookupTable:kPhotographyTableName dicOrModel:[ImageModel class] whereFormat:sqlStr];
-    if (models.count>0) {
-        BOOL isUpdate = [db jq_updateTable:kPhotographyTableName dicOrModel:imageModel whereFormat:sqlStr];
-        if (isUpdate) {
-            isSuccess(YES);
-        } else {
-            isSuccess(NO);
-        }
+    NSString *sqlStr = [NSString stringWithFormat:@"where relateId = %@",[imageModels[0] relateId]];
+    BOOL isDelete = [db jq_deleteTable:kPhotographyTableName whereFormat:sqlStr];
+    BOOL isInsert = [db jq_insertTable:kPhotographyTableName dicOrModelArray:imageModels];
+    if (isDelete && isInsert) {
+        isSuccess(YES);
     } else {
-        BOOL isInsert = [db jq_insertTable:kPhotographyTableName dicOrModel:imageModel];
-        if (isInsert) {
-            isSuccess(YES);
-        } else {
-            isSuccess(NO);
-        }
+        isSuccess(NO);
     }
     [db close];
 }
 
+- (void)getDesignImages:(void (^)(NSArray *))modelArr WithRelateId:(NSNumber *)relateId{
+    JQFMDB *db = [JQFMDB shareDatabase:kDataBaseName];
+    BOOL isExist = [db jq_isExistTable:kDesignImageTableName];
+    if (isExist) {
+        NSString *sqlStr = [NSString stringWithFormat:@"where relateId = %@",relateId];
+        NSArray *designImageModels = [db jq_lookupTable:kDesignImageTableName dicOrModel:[ImageModel class] whereFormat:sqlStr];
+        modelArr(designImageModels);
+    } else {
+        modelArr(nil);
+    }
+    [db close];
+}
 
 @end

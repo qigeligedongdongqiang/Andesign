@@ -18,6 +18,5 @@ typedef void(^completeBlock)(BOOL isSuccess,NSNumber *relateId);
 
 - (void)upLoadDesign:(DesignModel *)designModel complete:(completeBlock)completeAction;
 - (void)getDesigns:(void (^)(NSArray *modelArr))modelArr;
-- (void)getDesign:(void (^)(DesignModel *designModel))designModel WithDesignId:(NSNumber *)designId;
 
 @end

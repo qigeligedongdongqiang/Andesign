@@ -11,8 +11,6 @@
 @interface ImageModel : NSObject
 
 @property (nonatomic, copy) NSNumber *relateId;
-@property (nonatomic, assign) BOOL isMain;
 @property (nonatomic, copy) NSData *img;
-@property (nonatomic, copy) NSNumber *widthHeightScale;
 
 @end
