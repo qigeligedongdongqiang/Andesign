@@ -22,6 +22,8 @@
 		84DA4ED21EAEE8F4009326D9 /* MyPhotographyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4ED01EAEE8F4009326D9 /* MyPhotographyTableViewCell.m */; };
 		84DA4ED31EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DA4ED11EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib */; };
 		84DA4ED61EAF2EC0009326D9 /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4ED51EAF2EC0009326D9 /* HFStretchableTableHeaderView.m */; };
+		84DA4EDC1EAF3E39009326D9 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4EDB1EAF3E39009326D9 /* GuideViewController.m */; };
+		84DA4EDE1EAF4DFC009326D9 /* gifImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84DA4EDD1EAF4DFC009326D9 /* gifImage.gif */; };
 		84E4D91B1E88A27700D6CCE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4D91A1E88A27700D6CCE4 /* main.m */; };
 		84E4D91E1E88A27700D6CCE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4D91D1E88A27700D6CCE4 /* AppDelegate.m */; };
 		84E4D9261E88A27700D6CCE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E4D9251E88A27700D6CCE4 /* Assets.xcassets */; };
@@ -105,6 +107,9 @@
 		84DA4ED11EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPhotographyTableViewCell.xib; sourceTree = "<group>"; };
 		84DA4ED41EAF2EC0009326D9 /* HFStretchableTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFStretchableTableHeaderView.h; sourceTree = "<group>"; };
 		84DA4ED51EAF2EC0009326D9 /* HFStretchableTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFStretchableTableHeaderView.m; sourceTree = "<group>"; };
+		84DA4EDA1EAF3E39009326D9 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		84DA4EDB1EAF3E39009326D9 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		84DA4EDD1EAF4DFC009326D9 /* gifImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gifImage.gif; sourceTree = "<group>"; };
 		84E4D9161E88A27700D6CCE4 /* Andesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Andesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E4D91A1E88A27700D6CCE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84E4D91C1E88A27700D6CCE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -242,6 +247,32 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
+		84DA4ED81EAF3D3A009326D9 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				84DA4EDF1EAF5191009326D9 /* Other */,
+				84DA4ED91EAF3D52009326D9 /* Controller */,
+			);
+			name = Guide;
+			sourceTree = "<group>";
+		};
+		84DA4ED91EAF3D52009326D9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84DA4EDA1EAF3E39009326D9 /* GuideViewController.h */,
+				84DA4EDB1EAF3E39009326D9 /* GuideViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		84DA4EDF1EAF5191009326D9 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				84DA4EDD1EAF4DFC009326D9 /* gifImage.gif */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		84E4D90D1E88A27700D6CCE4 = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +356,7 @@
 		84E4D9401E88B24E00D6CCE4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				84DA4ED81EAF3D3A009326D9 /* Guide */,
 				84E4D93F1E88B21500D6CCE4 /* Design */,
 				84E4D9861E88BC8400D6CCE4 /* PhotoGraphy */,
 				84E4D98A1E88BCC400D6CCE4 /* About */,
@@ -672,6 +704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E4D9291E88A27700D6CCE4 /* LaunchScreen.storyboard in Resources */,
+				84DA4EDE1EAF4DFC009326D9 /* gifImage.gif in Resources */,
 				84E4DA201E8A7B5200D6CCE4 /* EditImageTableViewCell.xib in Resources */,
 				84DA4ED31EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib in Resources */,
 				84E4DA101E8A101800D6CCE4 /* MyDesignTableViewCell.xib in Resources */,
@@ -757,6 +790,7 @@
 				84E4D9F11E890F2B00D6CCE4 /* MineModel.m in Sources */,
 				84E4DA021E89254500D6CCE4 /* AboutTableViewCell.m in Sources */,
 				84E4DA131E8A472B00D6CCE4 /* MyDesignAPI.m in Sources */,
+				84DA4EDC1EAF3E39009326D9 /* GuideViewController.m in Sources */,
 				84E4D9781E88B6D700D6CCE4 /* UIImage+PDF.m in Sources */,
 				84DA4ECE1EAEE4C9009326D9 /* MyPhotoAPI.m in Sources */,
 				84E4D93D1E88AEDE00D6CCE4 /* MainNavigationController.m in Sources */,
@@ -903,6 +937,7 @@
 			baseConfigurationReference = C969BE87C5D013E98197AE1F /* Pods-Andesign.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = HCWL597HJ7;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Andesign/PrefixHeader.pch";
 				INFOPLIST_FILE = Andesign/Info.plist;
@@ -921,6 +956,7 @@
 			baseConfigurationReference = 2B3A5B72917F1763552AD8F0 /* Pods-Andesign.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Andesign/PrefixHeader.pch";
 				INFOPLIST_FILE = Andesign/Info.plist;

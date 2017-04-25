@@ -43,11 +43,17 @@
         [[MyPhotoAPI shareManager] getPhotos:^(NSArray *modelArr) {
             MPStrongSelf(self)
             dispatch_async(dispatch_get_main_queue(), ^{
+                [strongself.tableView.mj_header endRefreshing];
                 strongself.photographyArr = modelArr.mutableCopy;
                 [strongself.tableView reloadData];
             });
         }];
     });
+}
+
+- (void)refreshData {
+    [self.photographyArr removeAllObjects];
+    [self loadData];
 }
 
 - (void)deletePhotoWithIndex:(NSInteger)index {

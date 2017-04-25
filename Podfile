@@ -1,4 +1,5 @@
 target 'Andesign' do
+pod 'SDWebImage', '~> 4.0.0'
 pod 'IQKeyboardManager', '~> 4.0.8'
 pod 'Masonry', '~> 1.0.2'
 pod 'YYText', '~> 1.0.7'

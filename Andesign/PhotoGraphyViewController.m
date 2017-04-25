@@ -46,13 +46,19 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         MPWeakSelf(self)
         [[MyPhotoAPI shareManager] getPhotos:^(NSArray *modelArr) {
-            MPStrongSelf(self)
             dispatch_async(dispatch_get_main_queue(), ^{                
+                MPStrongSelf(self)
+                [strongself.collectionView.mj_header endRefreshing];
                 strongself.photoArr = modelArr.mutableCopy;
                 [strongself.collectionView reloadData];
             });
         }];
     });
+}
+
+- (void)refreshData {
+    [self.photoArr removeAllObjects];
+    [self loadData];
 }
 
 #pragma mark - dataSource
@@ -119,6 +125,9 @@
         _collectionView.dataSource = self;
         
         _collectionView.backgroundColor = HEXCOLOR(0xF0F0F0);
+        _collectionView.mj_header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+            [self refreshData];
+        }];
     }
     return _collectionView;
 }

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
+#import "GuideViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +20,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    [self setMainTabBarController];
+    [self setRootViewController];
     return YES;
+}
+
+- (void)setRootViewController {
+    [self setGuideViewController];
+}
+
+- (void)setGuideViewController {
+    GuideViewController *guideViewController = [[GuideViewController alloc] init];
+    UINavigationController *guideNavigationController = [[MainNavigationController alloc]
+                                                         initWithRootViewController:guideViewController];
+    self.window.rootViewController = guideNavigationController;
+    [self.window makeKeyAndVisible];
 }
 
 - (void)setMainTabBarController {

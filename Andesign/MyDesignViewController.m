@@ -43,11 +43,17 @@
         [[MyDesignAPI shareManager] getDesigns:^(NSArray *modelArr) {
             MPStrongSelf(self)
             dispatch_async(dispatch_get_main_queue(), ^{
+                [strongself.tableView.mj_header endRefreshing];
                 strongself.designArr = modelArr.mutableCopy;
                 [strongself.tableView reloadData];
             });
         }];
     });
+}
+
+- (void)refreshData {
+    [self.designArr removeAllObjects];
+    [self loadData];
 }
 
 - (void)deleteDesignWithIndex:(NSInteger)index {
