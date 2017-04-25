@@ -17,4 +17,6 @@ UIKIT_EXTERN NSString *const kPhotographyTableName;
 UIKIT_EXTERN NSString *const kDesignImageTableName;
 UIKIT_EXTERN NSString *const kPhotographyImageTableName;
 
+UIKIT_EXTERN NSString *const kTitleFontName;
+
 @end

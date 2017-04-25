@@ -17,4 +17,6 @@ NSString *const kPhotographyTableName = @"Photography";
 NSString *const kDesignImageTableName = @"DesignImage";
 NSString *const kPhotographyImageTableName = @"PhotographyImage";
 
+NSString *const kTitleFontName = @"Lobster 1.4";
+
 @end

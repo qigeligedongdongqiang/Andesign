@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"DESIGN";
+//    self.navigationItem.title = @"DESIGN";
     self.tableView.showsVerticalScrollIndicator = NO;
 }
 
@@ -91,6 +91,12 @@
 
 - (BOOL)needRefresh {
     return YES;
+}
+
+- (NSMutableAttributedString *)setTitle {
+    NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:@"DESIGN"];
+    [attributeStr addAttribute:NSFontAttributeName value:[UIFont customFontOfSize:20 withName:kTitleFontName withExtension:@"otf"] range:NSMakeRange(0, 6)];
+    return attributeStr;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -17,4 +17,6 @@
 #import "NSStringConst.h"
 #import "Masonry.h"
 
+#import "UIFont+WDCustomLoader.h"
+
 #endif /* PrefixHeader_pch */

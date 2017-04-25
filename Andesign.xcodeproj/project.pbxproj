@@ -23,7 +23,11 @@
 		84DA4ED31EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DA4ED11EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib */; };
 		84DA4ED61EAF2EC0009326D9 /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4ED51EAF2EC0009326D9 /* HFStretchableTableHeaderView.m */; };
 		84DA4EDC1EAF3E39009326D9 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4EDB1EAF3E39009326D9 /* GuideViewController.m */; };
-		84DA4EDE1EAF4DFC009326D9 /* gifImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84DA4EDD1EAF4DFC009326D9 /* gifImage.gif */; };
+		84DA4EE11EAF5B3F009326D9 /* Lobster 1.4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84DA4EE01EAF5B3F009326D9 /* Lobster 1.4.otf */; };
+		84DA4EE91EAF6631009326D9 /* UIFont+DynamicFontControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4EE41EAF6631009326D9 /* UIFont+DynamicFontControl.m */; };
+		84DA4EEA1EAF6631009326D9 /* UIFont+WDCustomLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4EE61EAF6631009326D9 /* UIFont+WDCustomLoader.m */; };
+		84DA4EEB1EAF6631009326D9 /* UIFont-TTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4EE81EAF6631009326D9 /* UIFont-TTF.m */; };
+		84DA4EED1EAF6F58009326D9 /* gifImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84DA4EEC1EAF6F58009326D9 /* gifImage.gif */; };
 		84E4D91B1E88A27700D6CCE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4D91A1E88A27700D6CCE4 /* main.m */; };
 		84E4D91E1E88A27700D6CCE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4D91D1E88A27700D6CCE4 /* AppDelegate.m */; };
 		84E4D9261E88A27700D6CCE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E4D9251E88A27700D6CCE4 /* Assets.xcassets */; };
@@ -109,7 +113,14 @@
 		84DA4ED51EAF2EC0009326D9 /* HFStretchableTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFStretchableTableHeaderView.m; sourceTree = "<group>"; };
 		84DA4EDA1EAF3E39009326D9 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
 		84DA4EDB1EAF3E39009326D9 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
-		84DA4EDD1EAF4DFC009326D9 /* gifImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gifImage.gif; sourceTree = "<group>"; };
+		84DA4EE01EAF5B3F009326D9 /* Lobster 1.4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster 1.4.otf"; sourceTree = "<group>"; };
+		84DA4EE31EAF6631009326D9 /* UIFont+DynamicFontControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+DynamicFontControl.h"; sourceTree = "<group>"; };
+		84DA4EE41EAF6631009326D9 /* UIFont+DynamicFontControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+DynamicFontControl.m"; sourceTree = "<group>"; };
+		84DA4EE51EAF6631009326D9 /* UIFont+WDCustomLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+WDCustomLoader.h"; sourceTree = "<group>"; };
+		84DA4EE61EAF6631009326D9 /* UIFont+WDCustomLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+WDCustomLoader.m"; sourceTree = "<group>"; };
+		84DA4EE71EAF6631009326D9 /* UIFont-TTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont-TTF.h"; sourceTree = "<group>"; };
+		84DA4EE81EAF6631009326D9 /* UIFont-TTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont-TTF.m"; sourceTree = "<group>"; };
+		84DA4EEC1EAF6F58009326D9 /* gifImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gifImage.gif; sourceTree = "<group>"; };
 		84E4D9161E88A27700D6CCE4 /* Andesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Andesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E4D91A1E88A27700D6CCE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84E4D91C1E88A27700D6CCE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -268,9 +279,22 @@
 		84DA4EDF1EAF5191009326D9 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				84DA4EDD1EAF4DFC009326D9 /* gifImage.gif */,
+				84DA4EEC1EAF6F58009326D9 /* gifImage.gif */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		84DA4EE21EAF6631009326D9 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				84DA4EE31EAF6631009326D9 /* UIFont+DynamicFontControl.h */,
+				84DA4EE41EAF6631009326D9 /* UIFont+DynamicFontControl.m */,
+				84DA4EE51EAF6631009326D9 /* UIFont+WDCustomLoader.h */,
+				84DA4EE61EAF6631009326D9 /* UIFont+WDCustomLoader.m */,
+				84DA4EE71EAF6631009326D9 /* UIFont-TTF.h */,
+				84DA4EE81EAF6631009326D9 /* UIFont-TTF.m */,
+			);
+			path = UIFont;
 			sourceTree = "<group>";
 		};
 		84E4D90D1E88A27700D6CCE4 = {
@@ -306,6 +330,7 @@
 		84E4D9191E88A27700D6CCE4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84DA4EE01EAF5B3F009326D9 /* Lobster 1.4.otf */,
 				84E4D93E1E88B03100D6CCE4 /* PrefixHeader.pch */,
 				84E4D97D1E88B8EC00D6CCE4 /* Macros.h */,
 				84E4D9FC1E8915D100D6CCE4 /* NSStringConst.h */,
@@ -395,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				84E4D97F1E88BB6700D6CCE4 /* Other */,
+				84DA4EE21EAF6631009326D9 /* UIFont */,
 				84E4D94B1E88B55500D6CCE4 /* UIKit */,
 			);
 			name = Category;
@@ -704,7 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E4D9291E88A27700D6CCE4 /* LaunchScreen.storyboard in Resources */,
-				84DA4EDE1EAF4DFC009326D9 /* gifImage.gif in Resources */,
+				84DA4EE11EAF5B3F009326D9 /* Lobster 1.4.otf in Resources */,
 				84E4DA201E8A7B5200D6CCE4 /* EditImageTableViewCell.xib in Resources */,
 				84DA4ED31EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib in Resources */,
 				84E4DA101E8A101800D6CCE4 /* MyDesignTableViewCell.xib in Resources */,
@@ -713,6 +739,7 @@
 				84E4DA031E89254500D6CCE4 /* AboutTableViewCell.xib in Resources */,
 				84E4D9261E88A27700D6CCE4 /* Assets.xcassets in Resources */,
 				84E4DA4A1E8A922800D6CCE4 /* EditImageCollectionViewCell.xib in Resources */,
+				84DA4EED1EAF6F58009326D9 /* gifImage.gif in Resources */,
 				84E4DA1B1E8A5A1100D6CCE4 /* EditNormalTableViewCell.xib in Resources */,
 				8427274B1E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.xib in Resources */,
 			);
@@ -788,6 +815,7 @@
 				84E4D91B1E88A27700D6CCE4 /* main.m in Sources */,
 				84DA4E901EA60FE4009326D9 /* UIPlaceHolderTextView.m in Sources */,
 				84E4D9F11E890F2B00D6CCE4 /* MineModel.m in Sources */,
+				84DA4EEA1EAF6631009326D9 /* UIFont+WDCustomLoader.m in Sources */,
 				84E4DA021E89254500D6CCE4 /* AboutTableViewCell.m in Sources */,
 				84E4DA131E8A472B00D6CCE4 /* MyDesignAPI.m in Sources */,
 				84DA4EDC1EAF3E39009326D9 /* GuideViewController.m in Sources */,
@@ -796,12 +824,14 @@
 				84E4D93D1E88AEDE00D6CCE4 /* MainNavigationController.m in Sources */,
 				84E4D9F51E8910B800D6CCE4 /* AboutAPI.m in Sources */,
 				84E4D9761E88B6D700D6CCE4 /* UIImage+Merge.m in Sources */,
+				84DA4EE91EAF6631009326D9 /* UIFont+DynamicFontControl.m in Sources */,
 				8427274A1E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.m in Sources */,
 				842727431E8E36C5009044E3 /* PhotoGraphyViewController.m in Sources */,
 				84E4D9D51E88FC1F00D6CCE4 /* DesignViewController.m in Sources */,
 				84E4D9EE1E890EB100D6CCE4 /* AboutViewController.m in Sources */,
 				84E4D97A1E88B6D700D6CCE4 /* UIImage+Resize.m in Sources */,
 				84E4D9741E88B6D700D6CCE4 /* UIImage+FX.m in Sources */,
+				84DA4EEB1EAF6631009326D9 /* UIFont-TTF.m in Sources */,
 				84E4D96D1E88B6D700D6CCE4 /* UIImage+Alpha.m in Sources */,
 				84E4DA081E892F5A00D6CCE4 /* AboutHeaderView.m in Sources */,
 				84E4DA491E8A922800D6CCE4 /* EditImageCollectionViewCell.m in Sources */,

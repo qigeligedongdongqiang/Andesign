@@ -38,7 +38,8 @@
     self.gifImageView = gifImageView;
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:@"进入首页" forState:UIControlStateNormal];
+    [button setTitle:@"HOMEPAGE" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont customFontOfSize:17 withName:kTitleFontName withExtension:@"otf"];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.layer.borderWidth = 2;
     button.layer.borderColor = [UIColor blackColor].CGColor;
@@ -55,7 +56,7 @@
     }];
     
     [_button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view).offset(-150);
+        make.bottom.equalTo(self.view).offset(-50);
         make.centerX.equalTo(self.view);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(50);

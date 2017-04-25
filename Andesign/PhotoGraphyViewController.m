@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"PHOTOGRAPHY";
+//    self.navigationItem.title = @"PHOTOGRAPHY";
     
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([PhotoGraphyCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([PhotoGraphyCollectionViewCell class])];
     [self.view addSubview:self.collectionView];
@@ -130,6 +130,13 @@
         }];
     }
     return _collectionView;
+}
+
+#pragma mark - setConfig
+- (NSMutableAttributedString *)setTitle {
+    NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:@"PHOTOGRAPHY"];
+    [attributeStr addAttribute:NSFontAttributeName value:[UIFont customFontOfSize:20 withName:kTitleFontName withExtension:@"otf"] range:NSMakeRange(0, 11)];
+    return attributeStr;
 }
 
 - (void)didReceiveMemoryWarning {
