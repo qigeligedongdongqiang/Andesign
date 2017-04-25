@@ -15,7 +15,6 @@
 #import "MJRefresh.h"
 #import "JQFMDB.h"
 #import "NSStringConst.h"
-#import "MJExtension.h"
 #import "Masonry.h"
 
 #endif /* PrefixHeader_pch */

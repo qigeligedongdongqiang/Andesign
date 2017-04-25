@@ -6,12 +6,8 @@ PODS:
   - IQKeyboardManager (4.0.8)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
-  - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
   - QBImagePickerController (3.4.0)
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
   - YYText (1.0.7)
 
 DEPENDENCIES:
@@ -20,10 +16,8 @@ DEPENDENCIES:
   - IQKeyboardManager (~> 4.0.8)
   - Masonry (~> 1.0.2)
   - MBProgressHUD (~> 1.0.0)
-  - MJExtension (~> 3.0.13)
   - MJRefresh (~> 3.1.12)
   - QBImagePickerController (~> 3.4.0)
-  - SDWebImage (~> 4.0.0)
   - YYText (~> 1.0.7)
 
 SPEC CHECKSUMS:
@@ -32,12 +26,10 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 893ca2c6523759b12a6118c45eec40a7c20b8b7e
+PODFILE CHECKSUM: 69fe0239928ffc15a5ade4cddce34d9573efb3b2
 
 COCOAPODS: 1.2.1.beta.1

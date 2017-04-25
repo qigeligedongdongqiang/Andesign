@@ -24,11 +24,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MJExtension.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -54,11 +49,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>YYText.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,11 +57,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>02D0AC8D9957D46941A91BE7AA53B6DF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
 		<dict>
 			<key>primary</key>
@@ -82,12 +67,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>46E5B93B79A27D49DA32FE84C65BF297</key>
+		<key>3E57DAE86C45FBEC674627F5623D5BE5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>586F2DFA9BDCC6675C2546793A69E5CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C87FED04BEEFCA9BB6C62620F85F85E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,22 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A316B54C67E947D23CECD230FA5BFAEF</key>
+		<key>D5CA0B25D04C55D1308B3B30DC565F77</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC57FBEC738AC94787D7A8DA639D1EE8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D0141E4CBD1602F7A77D1368F3C57F2C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EBFB2311EBA3EAB663A32DDDCCF34778</key>
+		<key>E39E057DD19B9192B1E8D6941F33B273</key>
 		<dict>
 			<key>primary</key>
 			<true/>
