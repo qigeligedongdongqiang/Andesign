@@ -9,6 +9,7 @@
 #import "DesignViewController.h"
 #import "DesignTableViewCell.h"
 #import "DesignModel.h"
+#import "MyDesignAPI.h"
 
 @interface DesignViewController ()
 
@@ -22,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"DESIGN";
+    self.tableView.showsVerticalScrollIndicator = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -30,11 +32,18 @@
     [self loadData];
 }
 
+#pragma mark - loadData
 - (void)loadData {
-    for (NSInteger i = 0; i < 20; i ++) {
-        [self.designArr addObject:@1];
-    }
-    [self.tableView reloadData];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        MPWeakSelf(self)
+        [[MyDesignAPI shareManager] getDesigns:^(NSArray *modelArr) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                MPStrongSelf(self)
+                strongself.designArr = modelArr.mutableCopy;
+                [strongself.tableView reloadData];
+            });
+        }];
+    });
 }
 
 #pragma mark - datasource
@@ -54,7 +63,7 @@
 
 #pragma mark - delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 120;
+    return 150;
 }
 
 #pragma mark - lazyLoad

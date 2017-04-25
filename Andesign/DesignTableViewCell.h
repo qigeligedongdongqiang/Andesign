@@ -13,6 +13,7 @@
 @interface DesignTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *designImgView;
+@property (weak, nonatomic) IBOutlet UIView *renderView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
 

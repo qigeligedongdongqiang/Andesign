@@ -1,31 +1,31 @@
 //
-//  MyDesignViewController.m
+//  MyPhotographyViewController.m
 //  Andesign
 //
-//  Created by Ngmm_Jadon on 2017/3/28.
+//  Created by Ngmm_Jadon on 2017/4/25.
 //  Copyright © 2017年 Ngmm_Jadon. All rights reserved.
 //
 
-#import "MyDesignViewController.h"
-#import "MyDesignTableViewCell.h"
-#import "DesignModel.h"
+#import "MyPhotographyViewController.h"
+#import "MyPhotographyTableViewCell.h"
 #import "EditViewController.h"
+#import "PhotographyModel.h"
 
-#import "MyDesignAPI.h"
+#import "MyPhotoAPI.h"
 #import "ImageAPI.h"
 
-@interface MyDesignViewController ()
+@interface MyPhotographyViewController ()
 
-@property (nonatomic, strong) NSMutableArray *designArr;
+@property (nonatomic, strong) NSMutableArray *photographyArr;
 
 @end
 
-@implementation MyDesignViewController
+@implementation MyPhotographyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"DESIGN";
+    self.title = @"PHOTOGRAPHY";
     
 }
 
@@ -40,25 +40,25 @@
 - (void)loadData {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         MPWeakSelf(self)
-        [[MyDesignAPI shareManager] getDesigns:^(NSArray *modelArr) {
+        [[MyPhotoAPI shareManager] getPhotos:^(NSArray *modelArr) {
             MPStrongSelf(self)
             dispatch_async(dispatch_get_main_queue(), ^{
-                strongself.designArr = modelArr.mutableCopy;
+                strongself.photographyArr = modelArr.mutableCopy;
                 [strongself.tableView reloadData];
             });
         }];
     });
 }
 
-- (void)deleteDesignWithIndex:(NSInteger)index {
-    DesignModel *designModel = self.designArr[index];
+- (void)deletePhotoWithIndex:(NSInteger)index {
+    PhotographyModel *photographyModel = self.photographyArr[index];
     MPWeakSelf(self)
-    [[MyDesignAPI shareManager] deleteDesignWithDesignId:designModel.designId isSuccess:^(BOOL isSuccess) {
+    [[MyPhotoAPI shareManager] deletePhotoWithPhotographyId:photographyModel.photographyId isSuccess:^(BOOL isSuccess) {
         if (isSuccess) {
-            [[ImageAPI shareManager] deleteDesignImagesWithRelateId:designModel.designId IsSuccess:^(BOOL isSuccess) {
+            [[ImageAPI shareManager] deletePhotographyImagesWithRelateId:photographyModel.photographyId IsSuccess:^(BOOL isSuccess) {
                 MPStrongSelf(self)
                 if (isSuccess) {
-                    [strongself.designArr removeObjectAtIndex:index];
+                    [strongself.photographyArr removeObjectAtIndex:index];
                     [strongself.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
                 } else {
                     [MBProgressHUD showAutoMessage:@"删除失败，请重试" ToView:nil];
@@ -73,32 +73,32 @@
 
 #pragma mark - dataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.designArr.count;
+    return self.photographyArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MyDesignTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MyDesignTableViewCell class])];
+    MyPhotographyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MyPhotographyTableViewCell class])];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    DesignModel *designModel;
-    if (indexPath.row<self.designArr.count) {
-        designModel = self.designArr[indexPath
-                                   .row];
+    PhotographyModel *photographyModel;
+    if (indexPath.row<self.photographyArr.count) {
+        photographyModel = self.photographyArr[indexPath
+                                     .row];
     }
-    cell.designModel = designModel;
+    cell.photographyModel = photographyModel;
     return cell;
 }
 
-#pragma mark - delegate 
+#pragma mark - delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 120;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DesignModel *designModel;
-    if (indexPath.row<self.designArr.count) {
-        designModel = self.designArr[indexPath.row];
+    PhotographyModel *photographyModel;
+    if (indexPath.row<self.photographyArr.count) {
+        photographyModel = self.photographyArr[indexPath.row];
     }
-    EditViewController *editVC = [[EditViewController alloc] initDesignWithDesignModel:designModel];
+    EditViewController *editVC = [[EditViewController alloc] initPhotographyWithphotographyModel:photographyModel];
     [self.navigationController pushViewController:editVC animated:YES];
 }
 
@@ -112,7 +112,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self deleteDesignWithIndex:indexPath.row];
+        [self deletePhotoWithIndex:indexPath.row];
     }
 }
 
@@ -135,7 +135,7 @@
 }
 
 - (void)right_button_event:(UIButton *)sender {
-    EditViewController *editVC = [[EditViewController alloc] initDesignWithDesignModel:nil];
+    EditViewController *editVC = [[EditViewController alloc] initPhotographyWithphotographyModel:nil];
     [self.navigationController pushViewController:editVC animated:YES];
 }
 
@@ -144,7 +144,7 @@
 }
 
 - (NSArray *)cellReuseId {
-    return @[NSStringFromClass([MyDesignTableViewCell class])];
+    return @[NSStringFromClass([MyPhotographyTableViewCell class])];
 }
 
 - (BOOL)needRefresh {

@@ -8,14 +8,17 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AboutViewController.h"
 #import "AboutTableViewCell.h"
+#import "HFStretchableTableHeaderView.h"
 #import "AboutHeaderView.h"
 #import "AboutAPI.h"
 #import "MineModel.h"
 #import "MyDesignViewController.h"
+#import "MyPhotographyViewController.h"
 
 @interface AboutViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) MineModel *mineModel;
+@property (nonatomic, strong) HFStretchableTableHeaderView *stretchHeaderView;
 
 @end
 
@@ -43,6 +46,7 @@
     [self loadData];
 }
 
+#pragma mark - loadData
 - (void)loadData {
     MPWeakSelf(self)
     [[AboutAPI shareManager] getUserInfo:^(MineModel *model) {
@@ -87,7 +91,7 @@
         [weakself changeUserIcon];
     };
     headerView.nickNameLabel.delegate = self;
-    self.tableView.tableHeaderView = headerView;
+    [self.stretchHeaderView stretchHeaderForTableView:self.tableView withView:headerView];
 }
 
 #pragma mark - changeUserIcon
@@ -165,6 +169,11 @@
     [self upLoadUserInfo];
 }
 
+#pragma mark - scrollview delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.stretchHeaderView scrollViewDidScroll:scrollView];
+}
+
 #pragma mark - tableView dataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
@@ -181,6 +190,9 @@
         };
     } else if (indexPath.row == 1) {
         cell.titleLabel.text = @"我的图册";
+        cell.cellSelectAction = ^() {
+            [weakself enterMyPhotography];
+        };
     } else if (indexPath.row == 2) {
         cell.titleLabel.text = @"关于我们";
     }
@@ -190,6 +202,18 @@
 #pragma mark - enterNextPage
 - (void)enterMyDesign {
     [self.navigationController pushViewController:[MyDesignViewController new] animated:YES];
+}
+
+- (void)enterMyPhotography {
+    [self.navigationController pushViewController:[MyPhotographyViewController new] animated:YES];
+}
+
+#pragma mark - lazyLoad
+- (HFStretchableTableHeaderView *)stretchHeaderView {
+    if (!_stretchHeaderView) {
+        _stretchHeaderView = [[HFStretchableTableHeaderView alloc] init];
+    }
+    return _stretchHeaderView;
 }
 
 #pragma mark - setConfig

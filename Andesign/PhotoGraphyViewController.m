@@ -10,6 +10,12 @@
 #import "WaterFlowCollectionViewLayout.h"
 #import "PhotoGraphyCollectionViewCell.h"
 #import "PhotographyModel.h"
+#import "MyPhotoAPI.h"
+
+#define kColumnCount 2
+#define kColumnMargin 10
+#define kRowMargin 10
+#define kEdgeInset 10
 
 @interface PhotoGraphyViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,WaterFlowCollectionViewLayoutDelegate>
 
@@ -35,11 +41,18 @@
     [self loadData];
 }
 
+#pragma mark - loadData
 - (void)loadData {
-    for (NSInteger i = 0; i < 50; i++) {
-        [self.photoArr addObject:@1];
-    }
-    [self.collectionView reloadData];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        MPWeakSelf(self)
+        [[MyPhotoAPI shareManager] getPhotos:^(NSArray *modelArr) {
+            MPStrongSelf(self)
+            dispatch_async(dispatch_get_main_queue(), ^{                
+                strongself.photoArr = modelArr.mutableCopy;
+                [strongself.collectionView reloadData];
+            });
+        }];
+    });
 }
 
 #pragma mark - dataSource
@@ -58,17 +71,35 @@
         photographyModel = self.photoArr[indexPath.row];
     }
     cell.photographyModel = photographyModel;
-    cell.contentView.backgroundColor = [UIColor redColor];
     return cell;
 }
 
 #pragma mark - waterFlowDelegate
-//- (NSInteger)columnCountOfWaterFlowCollectionViewLayout:(WaterFlowCollectionViewLayout *)layout {
-//    return 2;
-//}
+- (NSInteger)columnCountOfWaterFlowCollectionViewLayout:(WaterFlowCollectionViewLayout *)layout {
+    return kColumnCount;
+}
+
+- (CGFloat)columnMarginOfWaterFlowCollectionViewLayout:(WaterFlowCollectionViewLayout *)layout {
+    return kColumnMargin;
+}
+
+- (CGFloat)rowMarginOfWaterFlowCollectionViewLayout:(WaterFlowCollectionViewLayout *)layout {
+    return kRowMargin;
+}
+
+- (UIEdgeInsets)edgeInsetsOfWaterFlowCollectionViewLayout:(WaterFlowCollectionViewLayout *)layout {
+    return UIEdgeInsetsMake(kEdgeInset,kEdgeInset,kEdgeInset,kEdgeInset);
+}
 
 - (CGFloat)waterFlowCollectionViewLayout:(WaterFlowCollectionViewLayout *)layout heightForItemAtIndexPath:(NSInteger)index ItemWith:(CGFloat)width {
-    return arc4random_uniform(150)+50;
+    PhotographyModel *model;
+    if (index < self.photoArr.count) {
+        model = self.photoArr[index];
+    }
+    UIImage *mainImg = [UIImage imageWithData:model.mainImg];
+    CGFloat rowWidth = (self.collectionView.frame.size.width - kEdgeInset*2 - (kColumnCount-1)*kColumnMargin)/kColumnCount;
+    CGFloat rowHeight = mainImg.size.height/mainImg.size.width*rowWidth;
+    return rowHeight;
 }
 
 #pragma mark - lazyLoad

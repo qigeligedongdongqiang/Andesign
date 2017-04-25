@@ -21,32 +21,45 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b2Z-Su-2hd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwL-vV-rxU">
-                        <rect key="frame" x="139" y="40" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ2-qa-W94">
-                        <rect key="frame" x="139" y="91" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noD-ST-Zso">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwL-vV-rxU">
+                                <rect key="frame" x="139" y="40" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ2-qa-W94">
+                                <rect key="frame" x="139" y="91" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25152504280821919" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GQ2-qa-W94" firstAttribute="top" secondItem="RwL-vV-rxU" secondAttribute="bottom" constant="30" id="7yo-m9-vdC"/>
+                            <constraint firstItem="RwL-vV-rxU" firstAttribute="centerX" secondItem="noD-ST-Zso" secondAttribute="centerX" id="8RG-fo-628"/>
+                            <constraint firstItem="RwL-vV-rxU" firstAttribute="top" secondItem="noD-ST-Zso" secondAttribute="top" constant="40" id="eoc-x3-C51"/>
+                            <constraint firstItem="RwL-vV-rxU" firstAttribute="centerX" secondItem="GQ2-qa-W94" secondAttribute="centerX" id="izw-tZ-Vd7"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="GQ2-qa-W94" firstAttribute="top" secondItem="RwL-vV-rxU" secondAttribute="bottom" constant="30" id="235-Ld-GHE"/>
-                    <constraint firstItem="RwL-vV-rxU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="3od-2o-O5F"/>
                     <constraint firstAttribute="trailing" secondItem="b2Z-Su-2hd" secondAttribute="trailing" id="F9i-Ai-gua"/>
+                    <constraint firstAttribute="trailing" secondItem="noD-ST-Zso" secondAttribute="trailing" id="Kyp-I0-nSh"/>
                     <constraint firstItem="b2Z-Su-2hd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LkZ-bx-2KM"/>
-                    <constraint firstItem="RwL-vV-rxU" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="N2Z-V3-ZN3"/>
+                    <constraint firstItem="noD-ST-Zso" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="M4y-sd-zuV"/>
                     <constraint firstAttribute="bottom" secondItem="b2Z-Su-2hd" secondAttribute="bottom" id="gLZ-5E-xzV"/>
                     <constraint firstItem="b2Z-Su-2hd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mZA-EM-N5a"/>
-                    <constraint firstItem="RwL-vV-rxU" firstAttribute="centerX" secondItem="GQ2-qa-W94" secondAttribute="centerX" id="vbU-gN-mfp"/>
+                    <constraint firstAttribute="bottom" secondItem="noD-ST-Zso" secondAttribute="bottom" id="ujY-t5-nRg"/>
+                    <constraint firstItem="noD-ST-Zso" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ve3-qH-vnz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="designImgView" destination="b2Z-Su-2hd" id="W2X-xn-yqf"/>
+                <outlet property="renderView" destination="noD-ST-Zso" id="4Ea-pj-9Y8"/>
                 <outlet property="summaryLabel" destination="GQ2-qa-W94" id="NQJ-I8-Rk2"/>
                 <outlet property="titleLabel" destination="RwL-vV-rxU" id="LNK-5g-a07"/>
             </connections>

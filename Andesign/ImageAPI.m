@@ -42,16 +42,16 @@
 
 - (void)upLoadPhotographyImages:(NSArray *)imageModels IsSuccess:(void (^)(BOOL))isSuccess {
     JQFMDB *db = [JQFMDB shareDatabase:kDataBaseName];
-    BOOL isCreate = [db jq_createTable:kPhotographyTableName dicOrModel:[ImageModel class] primaryKey:nil];
+    BOOL isCreate = [db jq_createTable:kPhotographyImageTableName dicOrModel:[ImageModel class] primaryKey:nil];
     if (!isCreate) {
-        BOOL isExist = [db jq_isExistTable:kPhotographyTableName];
+        BOOL isExist = [db jq_isExistTable:kPhotographyImageTableName];
         if (!isExist) {
             isSuccess(NO);
         }
     }
     NSString *sqlStr = [NSString stringWithFormat:@"where relateId = %@",[imageModels[0] relateId]];
-    BOOL isDelete = [db jq_deleteTable:kPhotographyTableName whereFormat:sqlStr];
-    BOOL isInsert = [db jq_insertTable:kPhotographyTableName dicOrModelArray:imageModels];
+    BOOL isDelete = [db jq_deleteTable:kPhotographyImageTableName whereFormat:sqlStr];
+    BOOL isInsert = [db jq_insertTable:kPhotographyImageTableName dicOrModelArray:imageModels];
     if (isDelete && isInsert) {
         isSuccess(YES);
     } else {

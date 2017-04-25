@@ -17,6 +17,11 @@
 		84DA4E901EA60FE4009326D9 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4E8F1EA60FE4009326D9 /* UIPlaceHolderTextView.m */; };
 		84DA4E931EA620DB009326D9 /* DesignModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4E921EA620DB009326D9 /* DesignModel.m */; };
 		84DA4E961EA620FC009326D9 /* PhotographyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4E951EA620FC009326D9 /* PhotographyModel.m */; };
+		84DA4ECB1EAEE44E009326D9 /* MyPhotographyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4ECA1EAEE44E009326D9 /* MyPhotographyViewController.m */; };
+		84DA4ECE1EAEE4C9009326D9 /* MyPhotoAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4ECD1EAEE4C9009326D9 /* MyPhotoAPI.m */; };
+		84DA4ED21EAEE8F4009326D9 /* MyPhotographyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4ED01EAEE8F4009326D9 /* MyPhotographyTableViewCell.m */; };
+		84DA4ED31EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DA4ED11EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib */; };
+		84DA4ED61EAF2EC0009326D9 /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4ED51EAF2EC0009326D9 /* HFStretchableTableHeaderView.m */; };
 		84E4D91B1E88A27700D6CCE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4D91A1E88A27700D6CCE4 /* main.m */; };
 		84E4D91E1E88A27700D6CCE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4D91D1E88A27700D6CCE4 /* AppDelegate.m */; };
 		84E4D9261E88A27700D6CCE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E4D9251E88A27700D6CCE4 /* Assets.xcassets */; };
@@ -65,7 +70,6 @@
 		84E4DA1B1E8A5A1100D6CCE4 /* EditNormalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E4DA191E8A5A1100D6CCE4 /* EditNormalTableViewCell.xib */; };
 		84E4DA1F1E8A7B5200D6CCE4 /* EditImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4DA1D1E8A7B5200D6CCE4 /* EditImageTableViewCell.m */; };
 		84E4DA201E8A7B5200D6CCE4 /* EditImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E4DA1E1E8A7B5200D6CCE4 /* EditImageTableViewCell.xib */; };
-		84E4DA451E8A90A400D6CCE4 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4DA441E8A90A400D6CCE4 /* ImageHelper.m */; };
 		84E4DA491E8A922800D6CCE4 /* EditImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4DA471E8A922800D6CCE4 /* EditImageCollectionViewCell.m */; };
 		84E4DA4A1E8A922800D6CCE4 /* EditImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E4DA481E8A922800D6CCE4 /* EditImageCollectionViewCell.xib */; };
 		8C993B0610D10AC32FEABEF8 /* libPods-Andesign.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4AD8C63479EA11DDCA856B /* libPods-Andesign.a */; };
@@ -92,6 +96,15 @@
 		84DA4E921EA620DB009326D9 /* DesignModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignModel.m; sourceTree = "<group>"; };
 		84DA4E941EA620FC009326D9 /* PhotographyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotographyModel.h; sourceTree = "<group>"; };
 		84DA4E951EA620FC009326D9 /* PhotographyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotographyModel.m; sourceTree = "<group>"; };
+		84DA4EC91EAEE44E009326D9 /* MyPhotographyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPhotographyViewController.h; sourceTree = "<group>"; };
+		84DA4ECA1EAEE44E009326D9 /* MyPhotographyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPhotographyViewController.m; sourceTree = "<group>"; };
+		84DA4ECC1EAEE4C9009326D9 /* MyPhotoAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPhotoAPI.h; sourceTree = "<group>"; };
+		84DA4ECD1EAEE4C9009326D9 /* MyPhotoAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPhotoAPI.m; sourceTree = "<group>"; };
+		84DA4ECF1EAEE8F4009326D9 /* MyPhotographyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPhotographyTableViewCell.h; sourceTree = "<group>"; };
+		84DA4ED01EAEE8F4009326D9 /* MyPhotographyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPhotographyTableViewCell.m; sourceTree = "<group>"; };
+		84DA4ED11EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPhotographyTableViewCell.xib; sourceTree = "<group>"; };
+		84DA4ED41EAF2EC0009326D9 /* HFStretchableTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFStretchableTableHeaderView.h; sourceTree = "<group>"; };
+		84DA4ED51EAF2EC0009326D9 /* HFStretchableTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFStretchableTableHeaderView.m; sourceTree = "<group>"; };
 		84E4D9161E88A27700D6CCE4 /* Andesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Andesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E4D91A1E88A27700D6CCE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84E4D91C1E88A27700D6CCE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -182,8 +195,6 @@
 		84E4DA1C1E8A7B5200D6CCE4 /* EditImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditImageTableViewCell.h; sourceTree = "<group>"; };
 		84E4DA1D1E8A7B5200D6CCE4 /* EditImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditImageTableViewCell.m; sourceTree = "<group>"; };
 		84E4DA1E1E8A7B5200D6CCE4 /* EditImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditImageTableViewCell.xib; sourceTree = "<group>"; };
-		84E4DA431E8A90A400D6CCE4 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
-		84E4DA441E8A90A400D6CCE4 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
 		84E4DA461E8A922800D6CCE4 /* EditImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditImageCollectionViewCell.h; sourceTree = "<group>"; };
 		84E4DA471E8A922800D6CCE4 /* EditImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditImageCollectionViewCell.m; sourceTree = "<group>"; };
 		84E4DA481E8A922800D6CCE4 /* EditImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -218,6 +229,15 @@
 			children = (
 				842727441E8E3792009044E3 /* WaterFlowCollectionViewLayout.h */,
 				842727451E8E3792009044E3 /* WaterFlowCollectionViewLayout.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		84DA4ED71EAF3185009326D9 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				84DA4ED41EAF2EC0009326D9 /* HFStretchableTableHeaderView.h */,
+				84DA4ED51EAF2EC0009326D9 /* HFStretchableTableHeaderView.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -419,7 +439,7 @@
 		84E4D98A1E88BCC400D6CCE4 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				84E4DA421E8A8FA300D6CCE4 /* Other */,
+				84DA4ED71EAF3185009326D9 /* Other */,
 				84E4D9F21E89105000D6CCE4 /* Service */,
 				84E4D9E01E89009C00D6CCE4 /* Controller */,
 				84E4D9DF1E89008F00D6CCE4 /* View */,
@@ -521,6 +541,9 @@
 				84E4DA0C1E8A101800D6CCE4 /* MyDesignTableViewCell.h */,
 				84E4DA0D1E8A101800D6CCE4 /* MyDesignTableViewCell.m */,
 				84E4DA0E1E8A101800D6CCE4 /* MyDesignTableViewCell.xib */,
+				84DA4ECF1EAEE8F4009326D9 /* MyPhotographyTableViewCell.h */,
+				84DA4ED01EAEE8F4009326D9 /* MyPhotographyTableViewCell.m */,
+				84DA4ED11EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib */,
 				84E4DA171E8A5A1100D6CCE4 /* EditNormalTableViewCell.h */,
 				84E4DA181E8A5A1100D6CCE4 /* EditNormalTableViewCell.m */,
 				84E4DA191E8A5A1100D6CCE4 /* EditNormalTableViewCell.xib */,
@@ -545,6 +568,8 @@
 				84E4D9ED1E890EB100D6CCE4 /* AboutViewController.m */,
 				84E4DA091E8A0F4600D6CCE4 /* MyDesignViewController.h */,
 				84E4DA0A1E8A0F4600D6CCE4 /* MyDesignViewController.m */,
+				84DA4EC91EAEE44E009326D9 /* MyPhotographyViewController.h */,
+				84DA4ECA1EAEE44E009326D9 /* MyPhotographyViewController.m */,
 				84E4DA141E8A4AF000D6CCE4 /* EditViewController.h */,
 				84E4DA151E8A4AF000D6CCE4 /* EditViewController.m */,
 			);
@@ -558,6 +583,8 @@
 				84E4D9F41E8910B800D6CCE4 /* AboutAPI.m */,
 				84E4DA111E8A472B00D6CCE4 /* MyDesignAPI.h */,
 				84E4DA121E8A472B00D6CCE4 /* MyDesignAPI.m */,
+				84DA4ECC1EAEE4C9009326D9 /* MyPhotoAPI.h */,
+				84DA4ECD1EAEE4C9009326D9 /* MyPhotoAPI.m */,
 				842727541E8F7F8A009044E3 /* ImageAPI.h */,
 				842727551E8F7F8A009044E3 /* ImageAPI.m */,
 			);
@@ -571,15 +598,6 @@
 				84E4D9FA1E89126B00D6CCE4 /* JQFMDB.m */,
 			);
 			path = JQFMDB;
-			sourceTree = "<group>";
-		};
-		84E4DA421E8A8FA300D6CCE4 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				84E4DA431E8A90A400D6CCE4 /* ImageHelper.h */,
-				84E4DA441E8A90A400D6CCE4 /* ImageHelper.m */,
-			);
-			name = Other;
 			sourceTree = "<group>";
 		};
 		FAF9D7102588CCB19ED7289E /* Frameworks */ = {
@@ -655,6 +673,7 @@
 			files = (
 				84E4D9291E88A27700D6CCE4 /* LaunchScreen.storyboard in Resources */,
 				84E4DA201E8A7B5200D6CCE4 /* EditImageTableViewCell.xib in Resources */,
+				84DA4ED31EAEE8F4009326D9 /* MyPhotographyTableViewCell.xib in Resources */,
 				84E4DA101E8A101800D6CCE4 /* MyDesignTableViewCell.xib in Resources */,
 				84E4DA051E892EB800D6CCE4 /* AboutHeaderView.xib in Resources */,
 				84E4D9E81E89026F00D6CCE4 /* DesignTableViewCell.xib in Resources */,
@@ -739,6 +758,7 @@
 				84E4DA021E89254500D6CCE4 /* AboutTableViewCell.m in Sources */,
 				84E4DA131E8A472B00D6CCE4 /* MyDesignAPI.m in Sources */,
 				84E4D9781E88B6D700D6CCE4 /* UIImage+PDF.m in Sources */,
+				84DA4ECE1EAEE4C9009326D9 /* MyPhotoAPI.m in Sources */,
 				84E4D93D1E88AEDE00D6CCE4 /* MainNavigationController.m in Sources */,
 				84E4D9F51E8910B800D6CCE4 /* AboutAPI.m in Sources */,
 				84E4D9761E88B6D700D6CCE4 /* UIImage+Merge.m in Sources */,
@@ -749,16 +769,18 @@
 				84E4D97A1E88B6D700D6CCE4 /* UIImage+Resize.m in Sources */,
 				84E4D9741E88B6D700D6CCE4 /* UIImage+FX.m in Sources */,
 				84E4D96D1E88B6D700D6CCE4 /* UIImage+Alpha.m in Sources */,
-				84E4DA451E8A90A400D6CCE4 /* ImageHelper.m in Sources */,
 				84E4DA081E892F5A00D6CCE4 /* AboutHeaderView.m in Sources */,
 				84E4DA491E8A922800D6CCE4 /* EditImageCollectionViewCell.m in Sources */,
+				84DA4ECB1EAEE44E009326D9 /* MyPhotographyViewController.m in Sources */,
 				84E4D9711E88B6D700D6CCE4 /* UIImage+Capture.m in Sources */,
 				842727461E8E3792009044E3 /* WaterFlowCollectionViewLayout.m in Sources */,
 				84E4D9791E88B6D700D6CCE4 /* UIImage+RemoteSize.m in Sources */,
 				84E4D96E1E88B6D700D6CCE4 /* UIImage+animatedGIF.m in Sources */,
 				84E4D9E71E89026F00D6CCE4 /* DesignTableViewCell.m in Sources */,
+				84DA4ED21EAEE8F4009326D9 /* MyPhotographyTableViewCell.m in Sources */,
 				84E4DA0F1E8A101800D6CCE4 /* MyDesignTableViewCell.m in Sources */,
 				84E4D9491E88B4F500D6CCE4 /* Reachability.m in Sources */,
+				84DA4ED61EAF2EC0009326D9 /* HFStretchableTableHeaderView.m in Sources */,
 				84E4D9FB1E89126B00D6CCE4 /* JQFMDB.m in Sources */,
 				84E4DA0B1E8A0F4600D6CCE4 /* MyDesignViewController.m in Sources */,
 				84E4D97B1E88B6D700D6CCE4 /* UIImage+RoundedCorner.m in Sources */,

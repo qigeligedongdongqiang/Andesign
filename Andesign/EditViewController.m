@@ -20,6 +20,7 @@
 #import "ImageModel.h"
 
 #import "MyDesignAPI.h"
+#import "MyPhotoAPI.h"
 #import "ImageAPI.h"
 
 #define kMainImgNumber 1
@@ -130,7 +131,12 @@ typedef enum {
 }
 
 - (void)getImageInfoWithPhotographyModel:(PhotographyModel *)photographyModel {
-    
+    MPWeakSelf(self)
+    [[ImageAPI shareManager] getPhotographyImages:^(NSArray *modelArr) {
+        MPStrongSelf(self)
+        strongself.detailImgArr = modelArr.mutableCopy;
+        [strongself.tableView reloadData];
+    } WithRelateId:photographyModel.photographyId];
 }
 
 - (void)saveInfo {
@@ -175,7 +181,22 @@ typedef enum {
             [self upLoadDesign:designModel];
         }
     } else if (self.pageType == PageTypePhotography) {
-        
+        if (self.photographyModel) {
+            self.photographyModel.mainImg = [self.mainImgArr.firstObject img];
+            self.photographyModel.title = self.titleTextField.text;
+            self.photographyModel.summary = self.summaryTextField.text;
+            self.photographyModel.detailText = self.detailTextView.text;
+            
+            [self upLoadPhotography:self.photographyModel];
+        } else {
+            PhotographyModel *photographyModel = [[PhotographyModel alloc] init];
+            photographyModel.mainImg = [self.mainImgArr.firstObject img];
+            photographyModel.title = self.titleTextField.text;
+            photographyModel.summary = self.summaryTextField.text;
+            photographyModel.detailText = self.detailTextView.text;
+            
+            [self upLoadPhotography:photographyModel];
+        }
     }
 }
 
@@ -188,6 +209,27 @@ typedef enum {
                 imageModel.relateId = relateId;
             }
             [[ImageAPI shareManager] upLoadDesignImages:strongself.detailImgArr IsSuccess:^(BOOL isSuccess) {
+                if (!isSuccess) {
+                    [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
+                } else {
+                    [strongself.navigationController popViewControllerAnimated:YES];
+                }
+            }];
+        } else {
+            [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
+        }
+    }];
+}
+
+- (void)upLoadPhotography:(PhotographyModel *)photographyModel {
+    MPWeakSelf(self)
+    [[MyPhotoAPI shareManager] upLoadPhoto:photographyModel complete:^(BOOL isSuccess, NSNumber *relateId) {
+        MPStrongSelf(self)
+        if (isSuccess) {
+            for (ImageModel *imageModel in strongself.detailImgArr) {
+                imageModel.relateId = relateId;
+            }
+            [[ImageAPI shareManager] upLoadPhotographyImages:strongself.detailImgArr IsSuccess:^(BOOL isSuccess) {
                 if (!isSuccess) {
                     [MBProgressHUD showInfo:@"保存失败,请重试" ToView:strongself.view];
                 } else {
