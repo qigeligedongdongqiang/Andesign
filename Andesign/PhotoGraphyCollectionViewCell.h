@@ -13,6 +13,9 @@
 @interface PhotoGraphyCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoImgView;
+@property (weak, nonatomic) IBOutlet UIView *renderView;
 @property (nonatomic, strong) PhotographyModel *photographyModel;
+
+- (void)setIsHighlightRow:(BOOL)isHighlightRow AtIsAnimation:(BOOL)animations;
 
 @end

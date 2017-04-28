@@ -10,6 +10,7 @@
 #import "DesignTableViewCell.h"
 #import "DesignModel.h"
 #import "MyDesignAPI.h"
+#import "DetailViewController.h"
 
 @interface DesignViewController ()
 
@@ -28,6 +29,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     
     [self loadData];
 }
@@ -70,6 +72,40 @@
 #pragma mark - delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 150;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DesignTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
+    CGRect rect = [tableView convertRect:rectInTableView toView:[tableView superview]];
+    UIImageView *maseView = [[UIImageView alloc] initWithImage:cell.designImgView.image];
+    maseView.frame = rect;
+    maseView.layer.masksToBounds = true;
+    maseView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.view addSubview:maseView];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [maseView removeFromSuperview];
+    });
+    [self enterDesignDetailViewWith:self.designArr[indexPath.row] AndStartFrame:rect];
+}
+
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    DesignTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setIsHighlightRow:true AtIsAnimation:true];
+}
+
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    DesignTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setIsHighlightRow:false AtIsAnimation:true];
+}
+
+#pragma mark - enterDetail
+- (void)enterDesignDetailViewWith:(DesignModel *)designModel AndStartFrame:(CGRect)startFrame{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        DetailViewController *detailVC = [[DetailViewController alloc] initWithModel:designModel];
+        detailVC.startFrame = startFrame;
+        [self presentViewController:detailVC animated:YES completion:nil];
+    });
 }
 
 #pragma mark - lazyLoad

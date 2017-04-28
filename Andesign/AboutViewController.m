@@ -39,6 +39,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationController.navigationBar.hidden = YES;
@@ -70,11 +71,10 @@
         mineModel.iconImg = UIImagePNGRepresentation([UIImage imageNamed:@"user_icon"]);
     }
     
-    MPWeakSelf(self)
     [[AboutAPI shareManager] upLoadUserInfo:mineModel IsSuccess:^(BOOL isSuccess) {
         NSLog(@"%zd",isSuccess);
         if (!isSuccess) {
-            [MBProgressHUD showInfo:@"上传个人信息失败,请重试" ToView:weakself.view];
+            [MBProgressHUD showAutoMessage:@"上传个人信息失败,请重试" ToView:nil];
         }
     }];
 }
@@ -195,6 +195,8 @@
         };
     } else if (indexPath.row == 2) {
         cell.titleLabel.text = @"关于我们";
+        cell.cellSelectAction = ^() {
+        };
     }
     return cell;
 }

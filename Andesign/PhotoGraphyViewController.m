@@ -11,6 +11,7 @@
 #import "PhotoGraphyCollectionViewCell.h"
 #import "PhotographyModel.h"
 #import "MyPhotoAPI.h"
+#import "DetailViewController.h"
 
 #define kColumnCount 2
 #define kColumnMargin 10
@@ -37,6 +38,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     
     [self loadData];
 }
@@ -78,6 +80,40 @@
     }
     cell.photographyModel = photographyModel;
     return cell;
+}
+
+#pragma mark - collection delegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    PhotoGraphyCollectionViewCell *cell = (PhotoGraphyCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    CGRect rect = [collectionView convertRect:cell.frame toView:[collectionView superview]];
+    UIImageView *maseView = [[UIImageView alloc] initWithImage:cell.photoImgView.image];
+    maseView.frame = rect;
+    maseView.layer.masksToBounds = true;
+    maseView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.view addSubview:maseView];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [maseView removeFromSuperview];
+    });
+    [self enterPhotographyDetailViewWith:self.photoArr[indexPath.row] AndStartFrame:rect];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    PhotoGraphyCollectionViewCell *cell = (PhotoGraphyCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [cell setIsHighlightRow:YES AtIsAnimation:YES];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    PhotoGraphyCollectionViewCell *cell = (PhotoGraphyCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [cell setIsHighlightRow:NO AtIsAnimation:YES];
+}
+
+#pragma mark - enterDetailView
+- (void)enterPhotographyDetailViewWith:(PhotographyModel *)photographyModel AndStartFrame:(CGRect)startFrame {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        DetailViewController *detailVC = [[DetailViewController alloc] initWithModel:photographyModel];
+        detailVC.startFrame = startFrame;
+        [self presentViewController:detailVC animated:YES completion:nil];
+    });
 }
 
 #pragma mark - waterFlowDelegate

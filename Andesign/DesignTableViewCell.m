@@ -15,9 +15,6 @@
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longCliped:)];
-    longGes.minimumPressDuration = 1;
-    [self.contentView addGestureRecognizer:longGes];
 }
 
 - (void)setDesignModel:(DesignModel *)designModel {
@@ -28,11 +25,27 @@
     self.designImgView.image = [UIImage imageWithData:designModel.mainImg];
 }
 
-- (void)longCliped:(UILongPressGestureRecognizer *)longGes {
-    if (longGes.state == UIGestureRecognizerStateBegan) {
-        self.renderView.hidden = YES;
-    } else if (longGes.state == UIGestureRecognizerStateEnded) {
-        self.renderView.hidden = NO;
+- (void)setIsHighlightRow:(BOOL)isHighlightRow AtIsAnimation:(BOOL)animations {
+    if (isHighlightRow) {
+        
+        if (animations) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.renderView.alpha = 0.0f;
+            } completion:^(BOOL finished) {}];
+        } else {
+            self.renderView.alpha = 0.0f;
+        }
+        
+    } else {
+        
+        if (animations) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.renderView.alpha = 1.0f;
+            } completion:^(BOOL finished) {}];
+        } else {
+            self.renderView.alpha = 1.0f;
+        }
+        
     }
 }
 

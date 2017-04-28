@@ -18,21 +18,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KTm-lJ-w3h">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KTm-lJ-w3h">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oou-D8-lhc">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.3009952910958904" colorSpace="calibratedRGB"/>
+                    </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="KTm-lJ-w3h" secondAttribute="bottom" id="Drd-SH-7G6"/>
                 <constraint firstItem="KTm-lJ-w3h" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Evy-2P-lRT"/>
+                <constraint firstAttribute="trailing" secondItem="Oou-D8-lhc" secondAttribute="trailing" id="FY8-2e-FcV"/>
                 <constraint firstItem="KTm-lJ-w3h" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Mzj-gO-nan"/>
+                <constraint firstAttribute="bottom" secondItem="Oou-D8-lhc" secondAttribute="bottom" id="Nhd-8M-xsy"/>
+                <constraint firstItem="Oou-D8-lhc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VVi-0F-8vi"/>
                 <constraint firstAttribute="trailing" secondItem="KTm-lJ-w3h" secondAttribute="trailing" id="Y0H-42-jhy"/>
                 <constraint firstItem="KTm-lJ-w3h" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gW4-OB-9nJ"/>
                 <constraint firstItem="KTm-lJ-w3h" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="pcT-1y-9Jf"/>
+                <constraint firstItem="Oou-D8-lhc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wgb-6a-f2w"/>
             </constraints>
             <connections>
                 <outlet property="photoImgView" destination="KTm-lJ-w3h" id="1UU-rK-wPT"/>
+                <outlet property="renderView" destination="Oou-D8-lhc" id="zsA-gj-14J"/>
             </connections>
         </collectionViewCell>
     </objects>

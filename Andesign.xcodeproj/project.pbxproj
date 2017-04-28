@@ -28,6 +28,9 @@
 		84DA4EEA1EAF6631009326D9 /* UIFont+WDCustomLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4EE61EAF6631009326D9 /* UIFont+WDCustomLoader.m */; };
 		84DA4EEB1EAF6631009326D9 /* UIFont-TTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4EE81EAF6631009326D9 /* UIFont-TTF.m */; };
 		84DA4EED1EAF6F58009326D9 /* gifImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84DA4EEC1EAF6F58009326D9 /* gifImage.gif */; };
+		84DA4EF11EB03519009326D9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4EF01EB03519009326D9 /* DetailViewController.m */; };
+		84DA4EF61EB0359F009326D9 /* JDInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4EF51EB0359F009326D9 /* JDInteractiveTransition.m */; };
+		84DA4EFA1EB19F8A009326D9 /* DetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4EF91EB19F8A009326D9 /* DetailBottomView.m */; };
 		84E4D91B1E88A27700D6CCE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4D91A1E88A27700D6CCE4 /* main.m */; };
 		84E4D91E1E88A27700D6CCE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4D91D1E88A27700D6CCE4 /* AppDelegate.m */; };
 		84E4D9261E88A27700D6CCE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E4D9251E88A27700D6CCE4 /* Assets.xcassets */; };
@@ -121,6 +124,12 @@
 		84DA4EE71EAF6631009326D9 /* UIFont-TTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont-TTF.h"; sourceTree = "<group>"; };
 		84DA4EE81EAF6631009326D9 /* UIFont-TTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont-TTF.m"; sourceTree = "<group>"; };
 		84DA4EEC1EAF6F58009326D9 /* gifImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gifImage.gif; sourceTree = "<group>"; };
+		84DA4EEF1EB03519009326D9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		84DA4EF01EB03519009326D9 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		84DA4EF41EB0359F009326D9 /* JDInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDInteractiveTransition.h; sourceTree = "<group>"; };
+		84DA4EF51EB0359F009326D9 /* JDInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDInteractiveTransition.m; sourceTree = "<group>"; };
+		84DA4EF81EB19F8A009326D9 /* DetailBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBottomView.h; sourceTree = "<group>"; };
+		84DA4EF91EB19F8A009326D9 /* DetailBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBottomView.m; sourceTree = "<group>"; };
 		84E4D9161E88A27700D6CCE4 /* Andesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Andesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E4D91A1E88A27700D6CCE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84E4D91C1E88A27700D6CCE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -297,6 +306,43 @@
 			path = UIFont;
 			sourceTree = "<group>";
 		};
+		84DA4EEE1EB034CC009326D9 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				84DA4EF31EB03542009326D9 /* Other */,
+				84DA4EF21EB03521009326D9 /* Controller */,
+				84DA4EF71EB19EC9009326D9 /* View */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		84DA4EF21EB03521009326D9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84DA4EEF1EB03519009326D9 /* DetailViewController.h */,
+				84DA4EF01EB03519009326D9 /* DetailViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		84DA4EF31EB03542009326D9 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				84DA4EF41EB0359F009326D9 /* JDInteractiveTransition.h */,
+				84DA4EF51EB0359F009326D9 /* JDInteractiveTransition.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		84DA4EF71EB19EC9009326D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84DA4EF81EB19F8A009326D9 /* DetailBottomView.h */,
+				84DA4EF91EB19F8A009326D9 /* DetailBottomView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		84E4D90D1E88A27700D6CCE4 = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				84DA4ED81EAF3D3A009326D9 /* Guide */,
+				84DA4EEE1EB034CC009326D9 /* Detail */,
 				84E4D93F1E88B21500D6CCE4 /* Design */,
 				84E4D9861E88BC8400D6CCE4 /* PhotoGraphy */,
 				84E4D98A1E88BCC400D6CCE4 /* About */,
@@ -812,17 +859,20 @@
 				84E4D9821E88BB9300D6CCE4 /* MBProgressHUD+MP.m in Sources */,
 				84E4D9771E88B6D700D6CCE4 /* UIImage+Orientation.m in Sources */,
 				842727561E8F7F8A009044E3 /* ImageAPI.m in Sources */,
+				84DA4EFA1EB19F8A009326D9 /* DetailBottomView.m in Sources */,
 				84E4D91B1E88A27700D6CCE4 /* main.m in Sources */,
 				84DA4E901EA60FE4009326D9 /* UIPlaceHolderTextView.m in Sources */,
 				84E4D9F11E890F2B00D6CCE4 /* MineModel.m in Sources */,
 				84DA4EEA1EAF6631009326D9 /* UIFont+WDCustomLoader.m in Sources */,
 				84E4DA021E89254500D6CCE4 /* AboutTableViewCell.m in Sources */,
+				84DA4EF61EB0359F009326D9 /* JDInteractiveTransition.m in Sources */,
 				84E4DA131E8A472B00D6CCE4 /* MyDesignAPI.m in Sources */,
 				84DA4EDC1EAF3E39009326D9 /* GuideViewController.m in Sources */,
 				84E4D9781E88B6D700D6CCE4 /* UIImage+PDF.m in Sources */,
 				84DA4ECE1EAEE4C9009326D9 /* MyPhotoAPI.m in Sources */,
 				84E4D93D1E88AEDE00D6CCE4 /* MainNavigationController.m in Sources */,
 				84E4D9F51E8910B800D6CCE4 /* AboutAPI.m in Sources */,
+				84DA4EF11EB03519009326D9 /* DetailViewController.m in Sources */,
 				84E4D9761E88B6D700D6CCE4 /* UIImage+Merge.m in Sources */,
 				84DA4EE91EAF6631009326D9 /* UIFont+DynamicFontControl.m in Sources */,
 				8427274A1E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.m in Sources */,

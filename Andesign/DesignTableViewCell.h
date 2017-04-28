@@ -19,4 +19,6 @@
 
 @property (nonatomic, strong) DesignModel *designModel;
 
+- (void)setIsHighlightRow:(BOOL)isHighlightRow AtIsAnimation:(BOOL)animations;
+
 @end

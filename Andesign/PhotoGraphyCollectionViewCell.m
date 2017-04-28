@@ -22,4 +22,28 @@
     self.photoImgView.image = [UIImage imageWithData:photographyModel.mainImg];
 }
 
+- (void)setIsHighlightRow:(BOOL)isHighlightRow AtIsAnimation:(BOOL)animations {
+    if (isHighlightRow) {
+        
+        if (animations) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.renderView.alpha = 0.0f;
+            } completion:^(BOOL finished) {}];
+        } else {
+            self.renderView.alpha = 0.0f;
+        }
+        
+    } else {
+        
+        if (animations) {
+            [UIView animateWithDuration:0.2 animations:^{
+                self.renderView.alpha = 1.0f;
+            } completion:^(BOOL finished) {}];
+        } else {
+            self.renderView.alpha = 1.0f;
+        }
+        
+    }
+}
+
 @end
