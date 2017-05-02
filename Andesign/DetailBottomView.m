@@ -24,6 +24,8 @@ typedef enum {
 @property (nonatomic, strong) UIImageView *backgroungImgV;
 @property (nonatomic, strong) UIVisualEffectView *effectView;
 
+@property (nonatomic, strong) UITableView *tableView;
+
 @end
 
 @implementation DetailBottomView
@@ -92,8 +94,7 @@ typedef enum {
     
     self.buttonType = ExpandButtonTypeClose;
     self.expandBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.expandBtn setImage:[UIImage imageNamed:@"action_down"] forState:UIControlStateNormal];
-    self.expandBtn.transform = CGAffineTransformMakeRotation(M_PI);
+    [self.expandBtn setImage:[UIImage imageNamed:@"action_up"] forState:UIControlStateNormal];
     [self.expandBtn addTarget:self action:@selector(expandBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.expandBtn];
     
@@ -160,9 +161,17 @@ typedef enum {
         [self.delegate bottomView:self didClickExpandBtnOfType:self.buttonType];
     }
     if (self.buttonType == ExpandButtonTypeClose) {
-        self.buttonType = ExpandButtonTypeOpen;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.expandBtn.transform = CGAffineTransformMakeRotation(M_PI);
+        } completion:^(BOOL finished) {
+            self.buttonType = ExpandButtonTypeOpen;
+        }];
     } else if (self.buttonType == ExpandButtonTypeOpen) {
-        self.buttonType = ExpandButtonTypeClose;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.expandBtn.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            self.buttonType = ExpandButtonTypeClose;
+        }];
     }
 }
 

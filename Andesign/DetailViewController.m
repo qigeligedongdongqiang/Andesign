@@ -120,12 +120,12 @@ typedef enum {
 - (void)bottomView:(DetailBottomView *)bottomView didClickExpandBtnOfType:(ExpandButtonType)buttonType {
     if (buttonType == ExpandButtonTypeClose) {
         [UIApplication sharedApplication].statusBarHidden = YES;
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:0.3 animations:^{
             bottomView.frame = self.view.bounds;
         }];
     } else if (buttonType == ExpandButtonTypeOpen) {
         [UIApplication sharedApplication].statusBarHidden = NO;
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:0.3 animations:^{
             bottomView.frame = CGRectMake(0, CGRectGetMaxY(self.topImageView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.topImageView.frame));
         }];
     }
