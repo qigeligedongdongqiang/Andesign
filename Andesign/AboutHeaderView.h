@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WaterAnimationView.h"
 
 @class MineModel;
 
 typedef void(^IconButtonBlock)();
 
-@interface AboutHeaderView : UIView
+@interface AboutHeaderView : WaterAnimationView
 
 + (instancetype)viewFromXib;
 

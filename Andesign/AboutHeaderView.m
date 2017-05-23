@@ -16,6 +16,8 @@
 }
 
 - (void)layoutSubviews {
+    [super layoutSubviews];
+    
     self.iconImgView.layer.cornerRadius = 40;
     self.iconImgView.layer.masksToBounds = YES;
     

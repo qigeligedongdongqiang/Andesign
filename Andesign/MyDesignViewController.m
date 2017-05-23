@@ -40,7 +40,7 @@
 #pragma mark - loadData
 - (void)loadData {
     if (_isFirstEnter) {
-        self.isFirstEnter = YES;
+        self.isFirstEnter = NO;
         [[CustomLoading sharedManager] showLoadingTo:nil];
     }
     dispatch_async(dispatch_get_global_queue(0, 0), ^{

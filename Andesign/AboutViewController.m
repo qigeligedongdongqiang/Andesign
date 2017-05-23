@@ -91,7 +91,7 @@
         [weakself changeUserIcon];
     };
     headerView.nickNameLabel.delegate = self;
-    [self.stretchHeaderView stretchHeaderForTableView:self.tableView withView:headerView];
+    [self.stretchHeaderView stretchHeaderForTableView:self.tableView withHeaderView:headerView bgImage:[UIImage imageNamed:@"user_background.jpg"]];
 }
 
 #pragma mark - changeUserIcon

@@ -24,11 +24,17 @@
 
 @implementation WaterAnimationView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        [self setUp];
-    }
-    return  self;
+//- (instancetype)initWithFrame:(CGRect)frame {
+//    if (self = [super initWithFrame:frame]) {
+//        [self setUp];
+//    }
+//    return  self;
+//}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    [self setUp];
 }
 
 - (void)setUp{    

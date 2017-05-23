@@ -15,9 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_background" translatesAutoresizingMaskIntoConstraints="NO" id="vm2-92-h0z">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_icon" translatesAutoresizingMaskIntoConstraints="NO" id="QZ8-8H-IqZ">
                     <rect key="frame" x="148" y="60" width="80" height="80"/>
                     <constraints>
@@ -29,29 +26,25 @@
                     <rect key="frame" x="148" y="60" width="80" height="80"/>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入昵称" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="koT-PZ-0gq">
-                    <rect key="frame" x="150" y="150" width="76" height="20"/>
+                    <rect key="frame" x="144" y="150" width="89" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="jA2-Nf-gTs"/>
                     </constraints>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="1mm-Xa-rvO" firstAttribute="centerX" secondItem="QZ8-8H-IqZ" secondAttribute="centerX" id="4Hv-lj-UOI"/>
                 <constraint firstItem="QZ8-8H-IqZ" firstAttribute="centerX" secondItem="koT-PZ-0gq" secondAttribute="centerX" id="DS5-PG-o7t"/>
-                <constraint firstAttribute="trailing" secondItem="vm2-92-h0z" secondAttribute="trailing" id="FIk-NV-gla"/>
                 <constraint firstItem="1mm-Xa-rvO" firstAttribute="trailing" secondItem="QZ8-8H-IqZ" secondAttribute="trailing" id="Kbn-tD-FKl"/>
                 <constraint firstItem="QZ8-8H-IqZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LHr-qW-gWW"/>
                 <constraint firstItem="1mm-Xa-rvO" firstAttribute="leading" secondItem="QZ8-8H-IqZ" secondAttribute="leading" id="TFk-OR-YJk"/>
                 <constraint firstItem="QZ8-8H-IqZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="X6U-Nx-ugl"/>
-                <constraint firstItem="vm2-92-h0z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zlx-LF-fOe"/>
                 <constraint firstItem="1mm-Xa-rvO" firstAttribute="centerY" secondItem="QZ8-8H-IqZ" secondAttribute="centerY" id="a1P-9g-zY3"/>
                 <constraint firstItem="1mm-Xa-rvO" firstAttribute="top" secondItem="QZ8-8H-IqZ" secondAttribute="top" id="aEa-7Z-0pR"/>
-                <constraint firstAttribute="bottom" secondItem="vm2-92-h0z" secondAttribute="bottom" id="bv2-ZT-zSd"/>
                 <constraint firstItem="koT-PZ-0gq" firstAttribute="top" secondItem="1mm-Xa-rvO" secondAttribute="bottom" constant="10" id="gaq-Dh-u0t"/>
-                <constraint firstItem="vm2-92-h0z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kek-SK-8YO"/>
                 <constraint firstItem="1mm-Xa-rvO" firstAttribute="bottom" secondItem="QZ8-8H-IqZ" secondAttribute="bottom" id="mlY-e9-ELz"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -64,7 +57,6 @@
         </view>
     </objects>
     <resources>
-        <image name="user_background" width="540" height="264"/>
         <image name="user_icon" width="60" height="60"/>
     </resources>
 </document>
