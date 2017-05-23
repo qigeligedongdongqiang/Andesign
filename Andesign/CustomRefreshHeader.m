@@ -23,22 +23,12 @@
     
 //    NSMutableArray *loadingImageArr = [NSMutableArray array];
 //    for (int i = 0; i<60; i++) {
-//        NSString *imgName = [NSString stringWithFormat:@"ngmm_%02d",i];
+//        NSString *imgName = [NSString stringWithFormat:@"refresh_%02d",i];
 //        UIImage *image = [UIImage imageNamed:imgName];
 //        [loadingImageArr addObject:image];
 //    }
 //    [self setImages:loadingImageArr forState:MJRefreshStateIdle];
 //    [self setImages:loadingImageArr duration:2 forState:MJRefreshStateRefreshing];
-    UIImage *image = [UIImage imageNamed:@"Refresh"];
-//    imageView.center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"rotation"];
-    animation.fromValue = @(0);
-    animation.toValue = @(M_PI*2);
-    animation.duration = 1;
-//    animation.repeatCount =
-//    self.gifView.image = image;
-    [self setImages:@[image] forState:MJRefreshStateRefreshing];
-    [self.gifView.layer addAnimation:animation forKey:@"rotation"];
     self.lastUpdatedTimeLabel.hidden = YES;
     self.stateLabel.hidden = YES;
     
