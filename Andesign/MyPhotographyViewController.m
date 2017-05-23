@@ -17,6 +17,7 @@
 @interface MyPhotographyViewController ()
 
 @property (nonatomic, strong) NSMutableArray *photographyArr;
+@property (nonatomic, assign) BOOL isFirstEnter;
 
 @end
 
@@ -26,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"PHOTOGRAPHY";
-    
+    self.isFirstEnter = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -38,12 +39,17 @@
 
 #pragma mark - loadData
 - (void)loadData {
+    if (_isFirstEnter) {
+        self.isFirstEnter = YES;
+        [[CustomLoading sharedManager] showLoadingTo:nil];
+    }
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         MPWeakSelf(self)
         [[MyPhotoAPI shareManager] getPhotos:^(NSArray *modelArr) {
             MPStrongSelf(self)
             dispatch_async(dispatch_get_main_queue(), ^{
                 [strongself.tableView.mj_header endRefreshing];
+                [[CustomLoading sharedManager] hideLoadingFor:nil];
                 strongself.photographyArr = modelArr.mutableCopy;
                 [strongself.tableView reloadData];
             });

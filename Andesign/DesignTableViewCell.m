@@ -21,7 +21,7 @@
     _designModel = designModel;
     
     self.titleLabel.text = designModel.title;
-    self.summaryLabel.text = designModel.summary;
+    self.summaryLabel.text = [NSString stringWithFormat:@"#%@",designModel.summary];;
     self.designImgView.image = [UIImage imageWithData:designModel.mainImg];
 }
 

@@ -65,11 +65,12 @@ typedef enum {
     [self addSubview:self.summaryLabel];
     
     self.detailBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    self.detailBtn.clipsToBounds = YES;
     [self.detailBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.detailBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
     self.detailBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     self.detailBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
-    self.detailBtn.titleLabel.numberOfLines = 0;
+//    self.detailBtn.titleLabel.numberOfLines = 0;
     [self addSubview:self.detailBtn];
     
     switch (_pageType) {
@@ -100,19 +101,9 @@ typedef enum {
     
 }
 
-- (void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
-    
-    [self refreshFrame];
-}
-
-- (void)refreshFrame {
-    _backgroungImgV.frame = self.bounds;
-    _effectView.frame = self.bounds;
-    NSLog(@"%@",NSStringFromCGRect(_backgroungImgV.frame));
-}
-
 - (void)layoutSubviews {
+    [super layoutSubviews];
+    
     [_backgroungImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.right.equalTo(self);
     }];
@@ -152,8 +143,21 @@ typedef enum {
         make.top.equalTo(_line.mas_bottom).offset(10);
         make.left.equalTo(self).offset(12);
         make.right.equalTo(self).offset(-12);
-        make.bottom.equalTo(self).offset(10);
+        make.bottom.equalTo(self).offset(-10);
     }];
+    
+}
+
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    
+    [self refreshFrame];
+}
+
+- (void)refreshFrame {
+    _backgroungImgV.frame = self.bounds;
+    _effectView.frame = self.bounds;
+    NSLog(@"%@",NSStringFromCGRect(_backgroungImgV.frame));
 }
 
 - (void)expandBtnAction {
@@ -165,6 +169,7 @@ typedef enum {
             self.expandBtn.transform = CGAffineTransformMakeRotation(M_PI);
         } completion:^(BOOL finished) {
             self.buttonType = ExpandButtonTypeOpen;
+            self.detailBtn.frame = CGRectMake(12, CGRectGetMaxY(self.line.frame)+10, self.bounds.size.width-24, 50);
         }];
     } else if (self.buttonType == ExpandButtonTypeOpen) {
         [UIView animateWithDuration:0.3 animations:^{

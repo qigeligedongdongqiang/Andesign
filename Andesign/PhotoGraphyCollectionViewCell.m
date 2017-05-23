@@ -20,6 +20,7 @@
     _photographyModel = photographyModel;
     
     self.photoImgView.image = [UIImage imageWithData:photographyModel.mainImg];
+    self.titleLabel.text = photographyModel.title;
 }
 
 - (void)setIsHighlightRow:(BOOL)isHighlightRow AtIsAnimation:(BOOL)animations {

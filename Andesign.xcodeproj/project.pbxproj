@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840D109B1ECAEB9A00D4EF43 /* WaterAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D109A1ECAEB9A00D4EF43 /* WaterAnimationView.m */; };
 		842727361E8B90E5009044E3 /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 842727351E8B90E5009044E3 /* ImageModel.m */; };
 		842727431E8E36C5009044E3 /* PhotoGraphyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842727421E8E36C5009044E3 /* PhotoGraphyViewController.m */; };
 		842727461E8E3792009044E3 /* WaterFlowCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 842727451E8E3792009044E3 /* WaterFlowCollectionViewLayout.m */; };
 		8427274A1E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 842727481E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.m */; };
 		8427274B1E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842727491E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.xib */; };
 		842727561E8F7F8A009044E3 /* ImageAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 842727551E8F7F8A009044E3 /* ImageAPI.m */; };
+		843A59951ED348A000A99CAF /* CustomRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A59941ED348A000A99CAF /* CustomRefreshHeader.m */; };
+		843A599A1ED3D22B00A99CAF /* CustomLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A59991ED3D22B00A99CAF /* CustomLoading.m */; };
 		84DA4E831EA5EF7E009326D9 /* EditTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4E821EA5EF7E009326D9 /* EditTextViewTableViewCell.m */; };
 		84DA4E901EA60FE4009326D9 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4E8F1EA60FE4009326D9 /* UIPlaceHolderTextView.m */; };
 		84DA4E931EA620DB009326D9 /* DesignModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA4E921EA620DB009326D9 /* DesignModel.m */; };
@@ -86,6 +89,8 @@
 
 /* Begin PBXFileReference section */
 		2B3A5B72917F1763552AD8F0 /* Pods-Andesign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Andesign.release.xcconfig"; path = "Pods/Target Support Files/Pods-Andesign/Pods-Andesign.release.xcconfig"; sourceTree = "<group>"; };
+		840D10991ECAEB9A00D4EF43 /* WaterAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterAnimationView.h; sourceTree = "<group>"; };
+		840D109A1ECAEB9A00D4EF43 /* WaterAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterAnimationView.m; sourceTree = "<group>"; };
 		842727341E8B90E5009044E3 /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
 		842727351E8B90E5009044E3 /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
 		842727411E8E36C5009044E3 /* PhotoGraphyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGraphyViewController.h; sourceTree = "<group>"; };
@@ -97,6 +102,10 @@
 		842727491E8E3AA8009044E3 /* PhotoGraphyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoGraphyCollectionViewCell.xib; sourceTree = "<group>"; };
 		842727541E8F7F8A009044E3 /* ImageAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAPI.h; sourceTree = "<group>"; };
 		842727551E8F7F8A009044E3 /* ImageAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAPI.m; sourceTree = "<group>"; };
+		843A59931ED348A000A99CAF /* CustomRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRefreshHeader.h; sourceTree = "<group>"; };
+		843A59941ED348A000A99CAF /* CustomRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRefreshHeader.m; sourceTree = "<group>"; };
+		843A59981ED3D22B00A99CAF /* CustomLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLoading.h; sourceTree = "<group>"; };
+		843A59991ED3D22B00A99CAF /* CustomLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLoading.m; sourceTree = "<group>"; };
 		84DA4E811EA5EF7E009326D9 /* EditTextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTextViewTableViewCell.h; sourceTree = "<group>"; };
 		84DA4E821EA5EF7E009326D9 /* EditTextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTextViewTableViewCell.m; sourceTree = "<group>"; };
 		84DA4E8E1EA60FE4009326D9 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
@@ -258,11 +267,40 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
+		843A59921ED3482800A99CAF /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				843A59931ED348A000A99CAF /* CustomRefreshHeader.h */,
+				843A59941ED348A000A99CAF /* CustomRefreshHeader.m */,
+			);
+			name = Refresh;
+			sourceTree = "<group>";
+		};
+		843A59961ED3D20500A99CAF /* CustomControl */ = {
+			isa = PBXGroup;
+			children = (
+				843A59971ED3D21F00A99CAF /* Loading */,
+				843A59921ED3482800A99CAF /* Refresh */,
+			);
+			name = CustomControl;
+			sourceTree = "<group>";
+		};
+		843A59971ED3D21F00A99CAF /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				843A59981ED3D22B00A99CAF /* CustomLoading.h */,
+				843A59991ED3D22B00A99CAF /* CustomLoading.m */,
+			);
+			name = Loading;
+			sourceTree = "<group>";
+		};
 		84DA4ED71EAF3185009326D9 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				84DA4ED41EAF2EC0009326D9 /* HFStretchableTableHeaderView.h */,
 				84DA4ED51EAF2EC0009326D9 /* HFStretchableTableHeaderView.m */,
+				840D10991ECAEB9A00D4EF43 /* WaterAnimationView.h */,
+				840D109A1ECAEB9A00D4EF43 /* WaterAnimationView.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -439,6 +477,7 @@
 		84E4D9441E88B49A00D6CCE4 /* Expand */ = {
 			isa = PBXGroup;
 			children = (
+				843A59961ED3D20500A99CAF /* CustomControl */,
 				84E4D94A1E88B51700D6CCE4 /* Category */,
 				84E4D9451E88B4A900D6CCE4 /* Tool */,
 			);
@@ -853,6 +892,7 @@
 				84E4D9911E88EBC900D6CCE4 /* BaseTableViewController.m in Sources */,
 				84E4D91E1E88A27700D6CCE4 /* AppDelegate.m in Sources */,
 				84E4D9431E88B43000D6CCE4 /* BaseViewController.m in Sources */,
+				843A59951ED348A000A99CAF /* CustomRefreshHeader.m in Sources */,
 				84E4DA1F1E8A7B5200D6CCE4 /* EditImageTableViewCell.m in Sources */,
 				84E4D9701E88B6D700D6CCE4 /* UIImage+Blur.m in Sources */,
 				84E4D9751E88B6D700D6CCE4 /* UIImage+GIF.m in Sources */,
@@ -871,6 +911,7 @@
 				84E4D9781E88B6D700D6CCE4 /* UIImage+PDF.m in Sources */,
 				84DA4ECE1EAEE4C9009326D9 /* MyPhotoAPI.m in Sources */,
 				84E4D93D1E88AEDE00D6CCE4 /* MainNavigationController.m in Sources */,
+				843A599A1ED3D22B00A99CAF /* CustomLoading.m in Sources */,
 				84E4D9F51E8910B800D6CCE4 /* AboutAPI.m in Sources */,
 				84DA4EF11EB03519009326D9 /* DetailViewController.m in Sources */,
 				84E4D9761E88B6D700D6CCE4 /* UIImage+Merge.m in Sources */,
@@ -904,6 +945,7 @@
 				84E4DA161E8A4AF000D6CCE4 /* EditViewController.m in Sources */,
 				84E4D93A1E88AEB800D6CCE4 /* MainTabBarController.m in Sources */,
 				84E4D9731E88B6D700D6CCE4 /* UIImage+FileName.m in Sources */,
+				840D109B1ECAEB9A00D4EF43 /* WaterAnimationView.m in Sources */,
 				84E4D9FE1E8915D100D6CCE4 /* NSStringConst.m in Sources */,
 				84DA4E961EA620FC009326D9 /* PhotographyModel.m in Sources */,
 				84DA4E931EA620DB009326D9 /* DesignModel.m in Sources */,

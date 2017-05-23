@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *photoArr;
+@property (nonatomic, assign) BOOL isFirstEnter;
 
 @end
 
@@ -34,6 +35,7 @@
     
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([PhotoGraphyCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([PhotoGraphyCollectionViewCell class])];
     [self.view addSubview:self.collectionView];
+    self.isFirstEnter = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -45,12 +47,17 @@
 
 #pragma mark - loadData
 - (void)loadData {
+    if (_isFirstEnter) {
+        [[CustomLoading sharedManager] showLoadingTo:nil];
+        self.isFirstEnter = NO;
+    }
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         MPWeakSelf(self)
         [[MyPhotoAPI shareManager] getPhotos:^(NSArray *modelArr) {
             dispatch_async(dispatch_get_main_queue(), ^{                
                 MPStrongSelf(self)
                 [strongself.collectionView.mj_header endRefreshing];
+                [[CustomLoading sharedManager] hideLoadingFor:nil];
                 strongself.photoArr = modelArr.mutableCopy;
                 [strongself.collectionView reloadData];
             });

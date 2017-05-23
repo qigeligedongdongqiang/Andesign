@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoImgView;
 @property (weak, nonatomic) IBOutlet UIView *renderView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) PhotographyModel *photographyModel;
 
 - (void)setIsHighlightRow:(BOOL)isHighlightRow AtIsAnimation:(BOOL)animations;

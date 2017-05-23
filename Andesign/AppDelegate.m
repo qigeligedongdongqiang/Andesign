@@ -20,6 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    [self configureBoardManager];
     [self setRootViewController];
     return YES;
 }
@@ -40,6 +41,16 @@
     MainTabBarController *mainTabBarVC = [[MainTabBarController alloc] init];
     self.window.rootViewController = mainTabBarVC;
     [self.window makeKeyAndVisible];
+}
+
+-(void)configureBoardManager
+{
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    manager.keyboardDistanceFromTextField=60;
+    manager.enableAutoToolbar = NO;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

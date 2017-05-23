@@ -89,6 +89,8 @@ typedef enum {
 }
 
 - (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
     [_dismissBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(30);
         make.left.equalTo(self.view).offset(20);
@@ -100,11 +102,10 @@ typedef enum {
         make.height.mas_equalTo(self.view.frame.size.height/2+40);
     }];
     
-//    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.bottom.right.equalTo(self.view);
-//        make.top.equalTo(_topImageView.mas_bottom);
-//    }];
-    _bottomView.frame = CGRectMake(0, CGRectGetMaxY(self.topImageView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.topImageView.frame));
+    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.top.equalTo(_topImageView.mas_bottom);
+    }];
 }
 
 - (void)dismissBtnAction {
@@ -120,13 +121,20 @@ typedef enum {
 - (void)bottomView:(DetailBottomView *)bottomView didClickExpandBtnOfType:(ExpandButtonType)buttonType {
     if (buttonType == ExpandButtonTypeClose) {
         [UIApplication sharedApplication].statusBarHidden = YES;
+        [bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.left.bottom.right.equalTo(self.view);
+        }];
         [UIView animateWithDuration:0.3 animations:^{
-            bottomView.frame = self.view.bounds;
+            [self.view layoutIfNeeded];
         }];
     } else if (buttonType == ExpandButtonTypeOpen) {
         [UIApplication sharedApplication].statusBarHidden = NO;
+        [bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.bottom.right.equalTo(self.view);
+            make.top.equalTo(self.topImageView.mas_bottom);
+        }];
         [UIView animateWithDuration:0.3 animations:^{
-            bottomView.frame = CGRectMake(0, CGRectGetMaxY(self.topImageView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.topImageView.frame));
+            [self.view layoutIfNeeded];
         }];
     }
 }

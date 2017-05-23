@@ -23,7 +23,19 @@
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oou-D8-lhc">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7D-g6-XLg">
+                                <rect key="frame" x="8.5" y="15" width="35" height="20"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.3009952910958904" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="h7D-g6-XLg" firstAttribute="centerX" secondItem="Oou-D8-lhc" secondAttribute="centerX" id="F7D-jc-MXV"/>
+                            <constraint firstItem="h7D-g6-XLg" firstAttribute="centerY" secondItem="Oou-D8-lhc" secondAttribute="centerY" id="z4l-bM-9Ge"/>
+                        </constraints>
                     </view>
                 </subviews>
             </view>
@@ -42,6 +54,7 @@
             <connections>
                 <outlet property="photoImgView" destination="KTm-lJ-w3h" id="1UU-rK-wPT"/>
                 <outlet property="renderView" destination="Oou-D8-lhc" id="zsA-gj-14J"/>
+                <outlet property="titleLabel" destination="h7D-g6-XLg" id="jys-pL-Cdh"/>
             </connections>
         </collectionViewCell>
     </objects>

@@ -15,6 +15,7 @@
 @interface DesignViewController ()
 
 @property (nonatomic, strong) NSMutableArray *designArr;
+@property (nonatomic, assign) BOOL isFirstEnter;
 
 @end
 
@@ -25,6 +26,7 @@
     // Do any additional setup after loading the view.
 //    self.navigationItem.title = @"DESIGN";
     self.tableView.showsVerticalScrollIndicator = NO;
+    self.isFirstEnter = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -36,12 +38,17 @@
 
 #pragma mark - loadData
 - (void)loadData {
+    if (_isFirstEnter) {
+        self.isFirstEnter = NO;
+        [[CustomLoading sharedManager] showLoadingTo:nil];
+    }
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         MPWeakSelf(self)
         [[MyDesignAPI shareManager] getDesigns:^(NSArray *modelArr) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 MPStrongSelf(self)
                 [strongself.tableView.mj_header endRefreshing];
+                [[CustomLoading sharedManager] hideLoadingFor:nil];
                 strongself.designArr = modelArr.mutableCopy;
                 [strongself.tableView reloadData];
             });

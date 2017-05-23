@@ -26,9 +26,9 @@
         
         
         //显示未读
-        UINavigationController  *discoverNav =(UINavigationController *)self.viewControllers[1];
-        UITabBarItem *curTabBarItem=discoverNav.tabBarItem;
-        [curTabBarItem setBadgeValue:@"2"];
+//        UINavigationController  *discoverNav =(UINavigationController *)self.viewControllers[1];
+//        UITabBarItem *curTabBarItem=discoverNav.tabBarItem;
+//        [curTabBarItem setBadgeValue:@"2"];
     }
     return self;
 }
@@ -38,8 +38,8 @@
     //设置tabBar默认和选中颜色
     NSMutableDictionary *normalAtts = [NSMutableDictionary dictionary];
     NSMutableDictionary *selectedAtts = [NSMutableDictionary dictionary];
-    normalAtts[NSForegroundColorAttributeName] = RGB(195, 195, 195);
-    selectedAtts[NSForegroundColorAttributeName] = RGB(0, 0, 0);
+    normalAtts[NSForegroundColorAttributeName] = HEXCOLOR(0x999999);
+    selectedAtts[NSForegroundColorAttributeName] = HEXCOLOR(0x000000);
     [[UITabBarItem appearance] setTitleTextAttributes:normalAtts forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:selectedAtts forState:UIControlStateSelected];
     
@@ -80,18 +80,18 @@
 - (NSArray *)tabBarItemsAttributesForController {
     NSDictionary *firstTabBarItemsAttributes = @{
                                                  CYLTabBarItemTitle : @"DESIGN",
-                                                 CYLTabBarItemImage : @"",
-                                                 CYLTabBarItemSelectedImage : @"",
+                                                 CYLTabBarItemImage : @"Design_unselect",
+                                                 CYLTabBarItemSelectedImage : @"Design_select",
                                                  };
     NSDictionary *secondTabBarItemsAttributes = @{
                                                   CYLTabBarItemTitle : @"PHOTOGRAPHY",
-                                                  CYLTabBarItemImage : @"",
-                                                  CYLTabBarItemSelectedImage : @"",
+                                                  CYLTabBarItemImage : @"Photography_unselect",
+                                                  CYLTabBarItemSelectedImage : @"Photography_select",
                                                   };
     NSDictionary *thirdTabBarItemsAttributes = @{
                                                  CYLTabBarItemTitle : @"ABOUT",
-                                                 CYLTabBarItemImage : @"",
-                                                 CYLTabBarItemSelectedImage : @"",
+                                                 CYLTabBarItemImage : @"About_unselect",
+                                                 CYLTabBarItemSelectedImage : @"About_select",
                                                  };
     NSArray *tabBarItemsAttributes = @[
                                        firstTabBarItemsAttributes,
